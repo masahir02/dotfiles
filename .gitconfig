@@ -1,6 +1,7 @@
 [user]
     name  = masahir02
     email = masahir02@users.noreply.github.com
+    signingkey = C48DC9346BD36C4D
 [color]
     ui = auto
 [alias]
@@ -16,3 +17,5 @@
     default = simple
 [ghq]
     root = ~/src
+[commit]
+    gpgsign = true
