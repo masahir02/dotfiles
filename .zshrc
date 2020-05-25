@@ -1,7 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export FZF_DEFAULT_OPTS='--reverse --cycle --color=16'
+export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
 path=(
   $HOME/bin(N-/)
@@ -144,7 +144,7 @@ zle -N fzf-history
 bindkey '^R' fzf-history
 
 fzf-src() {
-  local repo_dir=$(ghq list --full-path | fzf)
+  local repo_dir=$(ghq list --full-path | sort | fzf)
   if [ -n "$repo_dir" ]; then
     BUFFER="cd ${repo_dir}"
     zle accept-line
