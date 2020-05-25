@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
+if [ ! -d $dotfiles_dir ]; then
+  git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
+fi
+
+vim_plug=~/.local/share/nvim/site/autoload/plug.vim
+if [ ! -f $vim_plug ]; then
+  curl -fLo $vim_plug --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+targets=(
+  .gemrc
+  .hammerspoon
+  .psqlrc
+  .tmux.conf
+  .zshrc
+  .Brewfile
+  bin
+)
+for target in ${targets[@]}; do ln -sfv $dotfiles_dir/$target $HOME; done
+
+rm -rf $HOME/.config/nvim && ln -sv $dotfiles_dir/nvim $HOME/.config
+
+[[ ! -f $HOME/.gitconfig ]] && cp -v $dotfiles_dir/.gitconfig $HOME
+
+brew bundle --global
+nvim +PlugInstall +qa

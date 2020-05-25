@@ -1,0 +1,109 @@
+" plugins
+call plug#begin('~/.config/nvim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'sheerun/vim-polyglot'
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+let g:terraform_fmt_on_save = 1
+
+source ~/.config/nvim/neosnippet.vim
+source ~/.config/nvim/quickrun.vim
+
+" chmod +x
+function! s:AutoChmod()
+  if getline(1) =~ "^#!"
+    silent !chmod +x %
+  endif
+endfunction
+autocmd BufWritePost * call s:AutoChmod()
+
+" filetypes
+augroup filetypedetect
+autocmd FileType css             setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html            setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript      setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType json            setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType typescript      setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType typescriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType vim             setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType zsh             setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType go              setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
+augroup END
+
+" mapping keys
+let mapleader = "\<Space>"
+nnoremap <ESC><ESC> :on<CR>
+nnoremap <Leader>d :bd<CR>
+nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+nnoremap <Tab> :Buffers<CR>
+nnoremap <C-f> :Files<CR>
+
+nnoremap q: <NOP>
+nnoremap q/ <NOP>
+nnoremap q? <NOP>
+
+vmap <CR> <Plug>(EasyAlign)
+
+colorscheme zellner
+
+syntax on
+
+highlight StatusLine cterm=None ctermfg=white ctermbg=None
+highlight StatusLineNC cterm=None ctermfg=236 ctermbg=None
+highlight LineNr ctermfg=236 ctermbg=None
+highlight Comment ctermfg=236
+
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set clipboard=unnamed
+set cmdheight=1
+set confirm
+set encoding=utf8
+set expandtab
+set fileencoding=utf8
+set fileencodings=utf8
+set fileformat=unix
+set fileformats=
+set hidden
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set list
+set listchars=tab:>.,trail:-,extends:\
+set nobackup
+set nostartofline
+set noswapfile
+set notimeout ttimeout ttimeoutlen=200
+set nowrap
+set number
+set ruler
+set scrolloff=5
+set shiftwidth=4
+set showcmd
+set showmode
+set smartcase
+set softtabstop=4
+set splitbelow
+set splitright
+set t_vb=
+set tabstop=4
+set visualbell
+set wildmenu

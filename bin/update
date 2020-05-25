@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+brew update
+brew bundle --global --no-lock
+brew cleanup --prune 0
+brew bundle cleanup --force --global
+
+boilerplates=(
+  Archives
+  Backup
+  macOS
+  Vim
+)
+gibo update
+gibo dump $boilerplates > ~/.gitignore_global
+
+yes | gcloud components update
+
+source ~/.zshrc
+zinit self-update
+zinit update --all
+
+asdf plugin-update --all
+
+nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa

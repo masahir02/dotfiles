@@ -1,0 +1,18 @@
+[user]
+    name  = masahir02
+    email = masahir02@users.noreply.github.com
+[color]
+    ui = auto
+[alias]
+    log-graph = log --graph --pretty=format:\"%C(yellow)[%ci] %C(blue)%h %C(magenta)%an %C(cyan)%s\"
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = vim
+[pager]
+    log  = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+[push]
+    default = simple
+[ghq]
+    root = ~/src
