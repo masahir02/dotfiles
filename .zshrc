@@ -157,6 +157,7 @@ bindkey '^\' fzf-src
 source $HOME/.zshrc.local
 source $(brew --prefix asdf)/asdf.sh
 source <(kubectl completion zsh)
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 
 
 
