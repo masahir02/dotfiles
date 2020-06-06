@@ -36,6 +36,7 @@ autocmd FileType json            setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType typescript      setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType typescriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType vim             setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType vue             setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType zsh             setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType go              setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
 augroup END
