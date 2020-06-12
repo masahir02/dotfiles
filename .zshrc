@@ -154,11 +154,17 @@ zle -N fzf-src
 bindkey '^\' fzf-src
 
 
-source $HOME/.zshrc.local
-source $(brew --prefix asdf)/asdf.sh
-source <(kubectl completion zsh)
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+# source files
+source_files=(
+  $HOME/.zshrc.local
+  /usr/local/opt/asdf/asdf.sh
+  /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+)
+for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
+if which kubectl > /dev/null; then
+  source <(kubectl completion zsh)
+fi
 
 
 
