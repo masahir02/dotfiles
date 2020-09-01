@@ -5,7 +5,6 @@ export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
 path=(
   $HOME/bin(N-/)
-  /usr/local/opt/heroku/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
   /usr/sbin
