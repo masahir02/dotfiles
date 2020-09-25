@@ -30,6 +30,7 @@ alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g JSON='| python -m json.tool'
 alias -g BQ='| bq query --nouse_legacy_sql'
+alias -g GIST='| gist --private --copy --open'
 
 # GNU
 alias ls='gls --color'
