@@ -52,7 +52,7 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
 nnoremap <Tab> :Buffers<CR>
-nnoremap <C-f> :Files<CR>
+nnoremap <C-f> :GFiles<CR>
 
 nnoremap q: <NOP>
 nnoremap q/ <NOP>
