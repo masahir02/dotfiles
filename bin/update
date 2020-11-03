@@ -22,4 +22,4 @@ zinit update --all
 
 asdf plugin-update --all
 
-nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
+vim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa

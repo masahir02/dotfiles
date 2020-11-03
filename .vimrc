@@ -1,23 +1,11 @@
 " plugins
-call plug#begin('~/.config/nvim/plugged')
-Plug '/usr/local/opt/fzf'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/neosnippet.vim'
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'pbrisbin/vim-mkdir'
 Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 call plug#end()
-
-let g:deoplete#enable_at_startup = 1
-let g:terraform_fmt_on_save = 1
-
-source ~/.config/nvim/neosnippet.vim
-source ~/.config/nvim/quickrun.vim
 
 " chmod +x
 function! s:AutoChmod()
@@ -57,8 +45,6 @@ nnoremap <C-f> :GFiles<CR>
 nnoremap q: <NOP>
 nnoremap q/ <NOP>
 nnoremap q? <NOP>
-
-vmap <CR> <Plug>(EasyAlign)
 
 colorscheme zellner
 
