@@ -13,6 +13,7 @@ path=(
   /bin
 )
 
+alias vi='vim'
 alias grep='grep --color=auto'
 alias rm='rm -i'
 alias cp='cp -i'
