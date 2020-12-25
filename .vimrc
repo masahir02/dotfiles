@@ -16,6 +16,13 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 
+let g:quickrun_config = {
+\ '_': {
+\   'outputter/buffer/split': '',
+\   'outputter/buffer/close_on_empty': 1,
+\ }
+\}
+
 " chmod +x
 autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
 " mkdir -p
