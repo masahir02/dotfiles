@@ -9,7 +9,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'sheerun/vim-polyglot'
-Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 call plug#end()
@@ -58,6 +57,8 @@ nnoremap <C-f> :GFiles<CR>
 nnoremap q: <NOP>
 nnoremap q/ <NOP>
 nnoremap q? <NOP>
+
+vnoremap p "0p
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
