@@ -1,14 +1,16 @@
 " plugins
 call plug#begin('~/.vim/plugged')
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -20,6 +22,9 @@ function! s:AutoChmod()
   endif
 endfunction
 autocmd BufWritePost * call s:AutoChmod()
+
+# mkdir -p
+autocmd BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
 
 " filetypes
 augroup filetypedetect
@@ -52,6 +57,10 @@ nnoremap q: <NOP>
 nnoremap q/ <NOP>
 nnoremap q? <NOP>
 
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
 colorscheme zellner
 
 syntax on
@@ -66,6 +75,7 @@ set autoread
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cmdheight=1
+set completeopt=menu
 set confirm
 set encoding=utf8
 set expandtab
