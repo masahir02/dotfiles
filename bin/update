@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 brew update
-brew bundle --global --no-lock
+brew bundle --global
 brew cleanup --prune 0
 brew bundle cleanup --force --global
 

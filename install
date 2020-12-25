@@ -18,6 +18,7 @@ targets=(
   .tmux.conf
   .zshrc
   .Brewfile
+  .Brewfile.lock.json
   .vimrc
   bin
 )
