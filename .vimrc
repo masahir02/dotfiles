@@ -17,15 +17,9 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 
 " chmod +x
-function! s:AutoChmod()
-  if getline(1) =~ "^#!"
-    silent !chmod +x %
-  endif
-endfunction
-autocmd BufWritePost * call s:AutoChmod()
-
+autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
 " mkdir -p
-autocmd BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
+autocmd BufWritePre * :silent !mkdir -p %:p:h
 
 " filetypes
 augroup filetypedetect
