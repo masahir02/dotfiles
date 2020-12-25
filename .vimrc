@@ -9,6 +9,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'sheerun/vim-polyglot'
+Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 call plug#end()
@@ -23,7 +24,7 @@ function! s:AutoChmod()
 endfunction
 autocmd BufWritePost * call s:AutoChmod()
 
-# mkdir -p
+" mkdir -p
 autocmd BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
 
 " filetypes
