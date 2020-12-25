@@ -1,11 +1,17 @@
 " plugins
 call plug#begin('~/.vim/plugged')
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " chmod +x
 function! s:AutoChmod()
