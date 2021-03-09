@@ -1,5 +1,5 @@
 [user]
-    name  = masahir02
+    name = masahir02
     email = masahir02@users.noreply.github.com
     signingkey = C48DC9346BD36C4D
 [color]
@@ -9,17 +9,24 @@
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
-[pager]
-    log  = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
-[push]
-    default = simple
-[ghq]
-    root = ~/src
-[commit]
-    gpgsign = true
-[pull]
-    rebase = false
+    pager = delta
 [init]
     defaultBranch = main
+[diff]
+    colorMoved = default
+[commit]
+    gpgsign = true
+[push]
+    default = simple
+[pull]
+    rebase = false
+[ghq]
+    root = ~/src
+[delta]
+    zero-style = normal
+    plus-style = green
+    plus-emph-style = black green
+    minus-style = red
+    minus-emph-style = black red
+[interactive]
+    diffFilter = delta --color-only
