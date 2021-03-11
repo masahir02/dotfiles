@@ -28,5 +28,6 @@
     plus-emph-style = black green
     minus-style = red
     minus-emph-style = black red
+    line-numbers = true
 [interactive]
     diffFilter = delta --color-only
