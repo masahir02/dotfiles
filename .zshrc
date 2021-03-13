@@ -166,8 +166,6 @@ if which kubectl > /dev/null; then
 fi
 
 
-
-
 # start tmux
 function() {
   local session_name=$(hostname | cut -d. -f1)
@@ -181,23 +179,12 @@ function() {
 }
 
 
-
-
-
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-  command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f"
-fi
+# Zinit
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-### End of Zinit installer's chunk
 
-zinit light 'zsh-users/zsh-autosuggestions'
-zinit light 'zsh-users/zsh-completions'
-zinit light 'zsh-users/zsh-history-substring-search'
-zinit light 'zdharma/fast-syntax-highlighting'
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
+zinit light zdharma/fast-syntax-highlighting
