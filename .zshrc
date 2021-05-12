@@ -4,14 +4,19 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 export GOPATH=$HOME
 
+fpath=(
+  /opt/homebrew/opt/git/share/zsh/site-functions
+  /opt/homebrew/opt/asdf/share/zsh/site-functions
+  $fpath
+)
+
 path=(
   $HOME/bin(N-/)
-  /usr/local/sbin
-  /usr/local/bin
   /usr/sbin
   /usr/bin
   /sbin
   /bin
+  /opt/homebrew/bin
 )
 
 alias vi='vim'
@@ -23,8 +28,6 @@ alias rake='noglob rake'
 alias history='history -r -i 1 L'
 alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
-
-alias brew='PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin brew'
 
 alias -g L='| less -R'
 alias -g V='| vim -R -'
@@ -157,8 +160,8 @@ bindkey '^\' fzf-src
 # source files
 source_files=(
   $HOME/.zshrc.local
-  /usr/local/opt/asdf/asdf.sh
-  /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  /opt/homebrew/opt/asdf/asdf.sh
+  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
@@ -179,7 +182,6 @@ function() {
   fi
 }
 
-
 # Zinit
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
@@ -189,3 +191,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma/fast-syntax-highlighting
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"

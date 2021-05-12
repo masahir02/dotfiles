@@ -30,6 +30,7 @@ autocmd BufWritePre * :silent !mkdir -p %:p:h
 
 " filetypes
 augroup filetypedetect
+autocmd FileType markdown        setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType sql             setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType css             setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html            setlocal tabstop=2 shiftwidth=2 softtabstop=2
