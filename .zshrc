@@ -4,6 +4,11 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 export GOPATH=$HOME
 
+fpath=(
+  /opt/homebrew/share/zsh/site-functions/
+  $fpath
+)
+
 path=(
   $HOME/bin(N-/)
   /usr/local/sbin
