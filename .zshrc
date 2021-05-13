@@ -4,12 +4,6 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 export GOPATH=$HOME
 
-fpath=(
-  /opt/homebrew/opt/git/share/zsh/site-functions
-  /opt/homebrew/opt/asdf/share/zsh/site-functions
-  $fpath
-)
-
 path=(
   $HOME/bin(N-/)
   /usr/local/sbin
@@ -163,6 +157,7 @@ bindkey '^\' fzf-src
 source_files=(
   $HOME/.zshrc.local
   /opt/homebrew/opt/asdf/asdf.sh
+  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
   /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
