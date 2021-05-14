@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+if ! which brew > /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if [ ! -d $HOME/.zinit/bin ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+fi
+
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
   git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
@@ -18,7 +26,6 @@ targets=(
   .tmux.conf
   .zshrc
   .Brewfile
-  .Brewfile.lock.json
   .vimrc
   bin
 )
