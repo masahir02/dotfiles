@@ -171,6 +171,20 @@ if which kubectl > /dev/null; then
   source <(kubectl completion zsh)
 fi
 
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Zinit
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
+zinit light zdharma/fast-syntax-highlighting
+
 
 # start tmux
 function() {
@@ -183,16 +197,3 @@ function() {
     fi
   fi
 }
-
-# Zinit
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-history-substring-search
-zinit light zdharma/fast-syntax-highlighting
-
-# homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
