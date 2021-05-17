@@ -2,7 +2,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
-export GOPATH=$HOME
 
 fpath=(
   /opt/homebrew/share/zsh/site-functions/
@@ -172,8 +171,14 @@ if which kubectl > /dev/null; then
   source <(kubectl completion zsh)
 fi
 
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# golang
+export GOPATH=$HOME
+export GGO111MODULE=on
 
 
 # Zinit
