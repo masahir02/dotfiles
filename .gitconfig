@@ -7,7 +7,6 @@
 [alias]
     log-graph = log --graph --pretty=format:\"%C(yellow)[%ci] %C(blue)%h %C(magenta)%an %C(cyan)%s\"
 [core]
-    excludesfile = ~/.gitignore_global
     editor = vim
     pager = delta
 [init]

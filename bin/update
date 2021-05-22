@@ -13,7 +13,8 @@ boilerplates=(
   Vim
 )
 gibo update
-gibo dump $boilerplates > ~/.gitignore_global
+mkdir -p $HOME/.config/git
+gibo dump $boilerplates > $HOME/.config/git/ignore
 
 yes | gcloud components update
 
