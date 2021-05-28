@@ -10,8 +10,7 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
-  /opt/homebrew/Cellar/openjdk/15.0.2/bin(N-/)
-  /opt/homebrew/bin(N-/)
+  $HOMEBREW_PREFIX/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
   /usr/sbin
