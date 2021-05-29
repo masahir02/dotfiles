@@ -4,7 +4,7 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
 fpath=(
-  /opt/homebrew/share/zsh/site-functions/
+  $HOMEBREW_PREFIX/share/zsh/site-functions/
   $fpath
 )
 
