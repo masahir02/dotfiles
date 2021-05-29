@@ -161,9 +161,9 @@ bindkey '^\' fzf-src
 # source files
 source_files=(
   $HOME/.zshrc.local
-  /opt/homebrew/opt/asdf/asdf.sh
-  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-  /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  $HOMEBREW_PREFIX/opt/asdf/asdf.sh
+  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
