@@ -11,7 +11,7 @@ if [ ! -d $HOME/.zinit/bin ]; then
 fi
 
 # https://github.com/junegunn/vim-plug
-vim_plug=$HOME/.vim/autoload/plug.vim
+vim_plug=$HOME/.local/share/nvim/site/autoload/plug.vim
 if [ ! -f $vim_plug ]; then
   curl -fLo $vim_plug --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -22,19 +22,24 @@ if [ ! -d $dotfiles_dir ]; then
   git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
 fi
 
-targets=(
+dotfiles=(
   .gemrc
   .hammerspoon
   .psqlrc
   .tmux.conf
   .zshrc
   .Brewfile
-  .vimrc
   bin
 )
-for target in ${targets[@]}; do ln -sfv $dotfiles_dir/$target $HOME; done
+for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
+
+configs=(
+  nvim
+  git
+)
+for config in ${configs[@]}; do ln -sfv $dotfiles_dir/$config $HOME/.config; done
 
 [[ ! -f $HOME/.gitconfig ]] && cp -v $dotfiles_dir/.gitconfig $HOME
 
 brew bundle --global
-vim +PlugInstall +qa
+nvim +PlugInstall +qa

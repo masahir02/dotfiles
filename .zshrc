@@ -19,7 +19,8 @@ path=(
   /bin
 )
 
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias grep='grep --color=auto'
 alias rm='rm -i'
 alias cp='cp -i'
