@@ -1,25 +1,17 @@
 " plugins
 call plug#begin("$HOME/.local/share/nvim/plugged")
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
-
-let g:quickrun_config = {
-\ '_': {
-\   'outputter/buffer/split': '',
-\   'outputter/buffer/close_on_empty': 1,
-\ }
-\}
 
 " chmod +x
 autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
