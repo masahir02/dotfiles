@@ -12,6 +12,8 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+let g:fzf_preview_window = ['down:70%:hidden', 'ctrl-d']
+let g:fzf_layout = { 'window': 'enew' }
 
 " chmod +x
 autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
@@ -47,7 +49,7 @@ nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>n :enew<CR>
-nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>:echo<CR>
+nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
 nnoremap <Tab> :bp<CR>
 nnoremap q/ <NOP>
 nnoremap q: <NOP>
