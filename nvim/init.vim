@@ -37,7 +37,7 @@ augroup END
 
 " mapping keys
 let mapleader = "\<Space>"
-nnoremap <C-f> :GFiles<CR>
+nnoremap <C-f> :Files<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -45,7 +45,10 @@ nnoremap <C-l> <C-W>l
 nnoremap <ESC><ESC> :on<CR>
 nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
 nnoremap <Leader>d :bd<CR>
-nnoremap <Tab> :Buffers<CR>
+nnoremap <Leader>ls :Buffers<CR>
+nnoremap <Leader>n :enew<CR>
+nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>:echo<CR>
+nnoremap <Tab> :bp<CR>
 nnoremap q/ <NOP>
 nnoremap q: <NOP>
 nnoremap q? <NOP>
