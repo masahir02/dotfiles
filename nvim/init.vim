@@ -37,19 +37,17 @@ augroup END
 
 " mapping keys
 let mapleader = "\<Space>"
-nnoremap <ESC><ESC> :on<CR>
-nnoremap <Leader>d :bd<CR>
-nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <C-f> :GFiles<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
-
+nnoremap <ESC><ESC> :on<CR>
+nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <Leader>d :bd<CR>
 nnoremap <Tab> :Buffers<CR>
-nnoremap <C-f> :GFiles<CR>
-
-nnoremap q: <NOP>
 nnoremap q/ <NOP>
+nnoremap q: <NOP>
 nnoremap q? <NOP>
 
 " vnoremap p "0p
