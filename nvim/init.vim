@@ -61,6 +61,8 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+highlight Comment ctermfg=16
+
 set autoindent
 set autoread
 set backspace=indent,eol,start
