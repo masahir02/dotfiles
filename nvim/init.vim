@@ -61,15 +61,6 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-colorscheme zellner
-
-syntax on
-
-highlight StatusLine cterm=None ctermfg=white ctermbg=None
-highlight StatusLineNC cterm=None ctermfg=236 ctermbg=None
-highlight LineNr ctermfg=236 ctermbg=None
-highlight Comment ctermfg=236
-
 set autoindent
 set autoread
 set backspace=indent,eol,start
