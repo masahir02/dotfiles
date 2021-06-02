@@ -51,7 +51,7 @@ nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>:echo "reloaded!"<CR>
 nnoremap <Tab> :bn<CR>
-nnoremap <C-Tab> :bp<CR>
+nnoremap <S-Tab> :bp<CR>
 nnoremap q/ <NOP>
 nnoremap q: <NOP>
 nnoremap q? <NOP>
