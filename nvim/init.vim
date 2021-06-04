@@ -56,7 +56,7 @@ nnoremap q/ <NOP>
 nnoremap q: <NOP>
 nnoremap q? <NOP>
 
-vnoremap p "0p
+" vnoremap p "0p
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
