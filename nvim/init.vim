@@ -47,11 +47,10 @@ nnoremap <C-l> <C-W>l
 nnoremap <ESC><ESC> :on<CR>
 nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
 nnoremap <Leader>d :bd<CR>
-nnoremap <Leader>ls :Buffers<CR>
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>:echo "reloaded!"<CR>
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
+nnoremap <Tab> :Buffers<CR>
+nnoremap <S-Tab> :bn<CR>
 nnoremap q/ <NOP>
 nnoremap q: <NOP>
 nnoremap q? <NOP>
