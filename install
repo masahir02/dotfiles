@@ -1,30 +1,45 @@
 #!/usr/bin/env bash
 
-dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
-if [ ! -d $dotfiles_dir ]; then
-  git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
+# https://brew.sh/
+if ! which brew > /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-vim_plug=$HOME/.vim/autoload/plug.vim
+# https://github.com/zdharma/zinit
+if [ ! -d $HOME/.zinit/bin ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+fi
+
+# https://github.com/junegunn/vim-plug
+vim_plug=$HOME/.local/share/nvim/site/autoload/plug.vim
 if [ ! -f $vim_plug ]; then
   curl -fLo $vim_plug --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-targets=(
+dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
+if [ ! -d $dotfiles_dir ]; then
+  git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
+fi
+
+dotfiles=(
   .gemrc
   .hammerspoon
   .psqlrc
   .tmux.conf
   .zshrc
   .Brewfile
-  .Brewfile.lock.json
-  .vimrc
   bin
 )
-for target in ${targets[@]}; do ln -sfv $dotfiles_dir/$target $HOME; done
+for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
+
+dotconfig=(
+  nvim
+  git
+)
+for config in ${dotconfig[@]}; do ln -sfv $dotfiles_dir/$config $HOME/.config; done
 
 [[ ! -f $HOME/.gitconfig ]] && cp -v $dotfiles_dir/.gitconfig $HOME
 
 brew bundle --global
-vim +PlugInstall +qa
+nvim +PlugInstall +qa

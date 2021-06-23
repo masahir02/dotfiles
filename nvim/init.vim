@@ -1,27 +1,20 @@
 " plugins
-call plug#begin('~/.vim/plugged')
-Plug 'Shougo/deoplete.nvim'
+call plug#begin("$HOME/.local/share/nvim/plugged")
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'sheerun/vim-polyglot'
-Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
-
-let g:quickrun_config = {
-\ '_': {
-\   'outputter/buffer/split': '',
-\   'outputter/buffer/close_on_empty': 1,
-\ }
-\}
+let g:fzf_preview_window = ['down:70%:hidden', 'ctrl-d']
+let g:fzf_layout = { 'window': 'enew' }
 
 " chmod +x
 autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
@@ -30,6 +23,7 @@ autocmd BufWritePre * :silent !mkdir -p %:p:h
 
 " filetypes
 augroup filetypedetect
+autocmd FileType markdown        setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType sql             setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType css             setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html            setlocal tabstop=2 shiftwidth=2 softtabstop=2
@@ -46,19 +40,20 @@ augroup END
 
 " mapping keys
 let mapleader = "\<Space>"
-nnoremap <ESC><ESC> :on<CR>
-nnoremap <Leader>d :bd<CR>
-nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <C-f> :Files<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
-
+nnoremap <ESC><ESC> :on<CR>
+nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>n :enew<CR>
+nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>:echo "reloaded!"<CR>
 nnoremap <Tab> :Buffers<CR>
-nnoremap <C-f> :GFiles<CR>
-
-nnoremap q: <NOP>
+nnoremap <S-Tab> :bn<CR>
 nnoremap q/ <NOP>
+nnoremap q: <NOP>
 nnoremap q? <NOP>
 
 " vnoremap p "0p
@@ -66,15 +61,6 @@ nnoremap q? <NOP>
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-colorscheme zellner
-
-syntax on
-
-highlight StatusLine cterm=None ctermfg=white ctermbg=None
-highlight StatusLineNC cterm=None ctermfg=236 ctermbg=None
-highlight LineNr ctermfg=236 ctermbg=None
-highlight Comment ctermfg=236
 
 set autoindent
 set autoread
@@ -89,6 +75,7 @@ set fileencoding=utf8
 set fileencodings=utf8
 set fileformat=unix
 set fileformats=
+set guicursor=
 set hidden
 set history=1000
 set hlsearch

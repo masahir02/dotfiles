@@ -1,11 +1,17 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export FZF_DEFAULT_COMMAND='find . -type f | grep -Ev "(.git\/|__pycache__)"'
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
-export GOPATH=$HOME
+
+fpath=(
+  $HOMEBREW_PREFIX/share/zsh/site-functions(N-/)
+  $fpath
+)
 
 path=(
   $HOME/bin(N-/)
+  $HOMEBREW_PREFIX/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
   /usr/sbin
@@ -14,7 +20,8 @@ path=(
   /bin
 )
 
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias grep='grep --color=auto'
 alias rm='rm -i'
 alias cp='cp -i'
@@ -24,13 +31,11 @@ alias history='history -r -i 1 L'
 alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
 
-alias brew='PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin brew'
-
 alias -g L='| less -R'
 alias -g V='| vim -R -'
-alias -g JSON='| python -m json.tool'
+alias -g JSON='| python -m json.tool --no-ensure-ascii'
 alias -g BQ='| bq query --nouse_legacy_sql'
-alias -g GIST='| gist --private --copy --open'
+alias -g GIST='| gh gist create -w -'
 
 # GNU
 alias ls='gls --color'
@@ -157,14 +162,35 @@ bindkey '^\' fzf-src
 # source files
 source_files=(
   $HOME/.zshrc.local
-  /usr/local/opt/asdf/asdf.sh
-  /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  $(brew --prefix)/opt/asdf/asdf.sh
+  $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+  $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
 if which kubectl > /dev/null; then
   source <(kubectl completion zsh)
 fi
+
+
+# homebrew
+eval "$(`brew --prefix`/bin/brew shellenv)"
+
+
+# golang
+export GOPATH=$HOME
+export GGO111MODULE=on
+
+
+# Zinit
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
+zinit light zdharma/fast-syntax-highlighting
 
 
 # start tmux
@@ -178,14 +204,3 @@ function() {
     fi
   fi
 }
-
-
-# Zinit
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-history-substring-search
-zinit light zdharma/fast-syntax-highlighting

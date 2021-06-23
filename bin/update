@@ -6,14 +6,7 @@ brew bundle --global
 brew cleanup --prune 0
 brew bundle cleanup --force --global
 
-boilerplates=(
-  Archives
-  Backup
-  macOS
-  Vim
-)
 gibo update
-gibo dump $boilerplates > ~/.gitignore_global
 
 yes | gcloud components update
 
