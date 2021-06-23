@@ -158,24 +158,21 @@ fzf-src() {
 zle -N fzf-src
 bindkey '^\' fzf-src
 
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # source files
 source_files=(
   $HOME/.zshrc.local
-  $(brew --prefix)/opt/asdf/asdf.sh
-  $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-  $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  $HOMEBREW_PREFIX/opt/asdf/asdf.sh
+  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
 if which kubectl > /dev/null; then
   source <(kubectl completion zsh)
 fi
-
-
-# homebrew
-eval "$(`brew --prefix`/bin/brew shellenv)"
-
 
 # golang
 export GOPATH=$HOME
