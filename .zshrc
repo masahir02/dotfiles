@@ -162,9 +162,9 @@ bindkey '^\' fzf-src
 # source files
 source_files=(
   $HOME/.zshrc.local
-  $HOMEBREW_PREFIX/opt/asdf/asdf.sh
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  $(brew --prefix)/opt/asdf/asdf.sh
+  $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+  $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
@@ -174,7 +174,7 @@ fi
 
 
 # homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(`brew --prefix`/bin/brew shellenv)"
 
 
 # golang
