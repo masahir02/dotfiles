@@ -11,6 +11,7 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
+  $HOMEBREW_PREFIX/opt/openssl@1.1/bin(N-/)
   $HOMEBREW_PREFIX/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
