@@ -31,6 +31,7 @@ alias rake='noglob rake'
 alias history='history -r -i 1 L'
 alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
+alias python='python3'
 
 alias -g L='| less -R'
 alias -g V='| vim -R -'
