@@ -33,11 +33,11 @@ dotfiles=(
 )
 for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
 
-dotconfig=(
+dotconfigs=(
   nvim
   git
 )
-for config in ${dotconfig[@]}; do ln -sfv $dotfiles_dir/$config $HOME/.config; done
+for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
 [[ ! -f $HOME/.gitconfig ]] && cp -v $dotfiles_dir/.gitconfig $HOME
 
