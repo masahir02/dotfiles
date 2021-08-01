@@ -7,14 +7,21 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
-let g:fzf_preview_window = ['down:70%:hidden', 'ctrl-d']
+let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': 'enew' }
+let g:quickrun_config = {
+\ '_': {
+\   'outputter/buffer/opener': 'below 10 new',
+\   'outputter/buffer/close_on_empty': 1,
+\ },
+\}
 
 " chmod +x
 autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
@@ -49,9 +56,9 @@ nnoremap <ESC><ESC> :on<CR>
 nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :enew<CR>
-nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>:echo "reloaded!"<CR>
-nnoremap <Tab> :Buffers<CR>
+nnoremap <Leader>r :QuickRun<CR>
 nnoremap <S-Tab> :bn<CR>
+nnoremap <Tab> :Buffers<CR>
 nnoremap q/ <NOP>
 nnoremap q: <NOP>
 nnoremap q? <NOP>
