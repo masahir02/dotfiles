@@ -3,7 +3,7 @@
 brew update
 brew upgrade
 brew bundle --global
-brew cleanup --prune 0
+brew cleanup --prune=all
 brew bundle cleanup --force --global
 
 gibo update
