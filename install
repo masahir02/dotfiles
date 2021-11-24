@@ -5,9 +5,9 @@ if ! which brew > /dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# https://github.com/zdharma/zinit
-if [ ! -d $HOME/.zinit/bin ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+# https://github.com/zdharma-continuum/zinit
+if [ ! -d $HOME/.local/share/zinit ]; then
+  sh -c "$(curl -fsSL https://git.io/zinit-install)"
 fi
 
 # https://github.com/junegunn/vim-plug
