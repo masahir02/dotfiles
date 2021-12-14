@@ -11,8 +11,10 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
-  $HOMEBREW_PREFIX/opt/openssl@1.1/bin(N-/)
-  $HOMEBREW_PREFIX/bin(N-/)
+  /opt/homebrew/opt/ruby@2.7/bin(N-/)
+  /opt/homebrew/opt/node@16/bin(N-/)
+  /opt/homebrew/opt/openssl@1.1/bin(N-/)
+  /opt/homebrew/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
   /usr/sbin
@@ -166,7 +168,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # source files
 source_files=(
   $HOME/.zshrc.local
-  $HOMEBREW_PREFIX/opt/asdf/asdf.sh
   $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
   $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 )
