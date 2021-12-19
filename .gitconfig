@@ -8,11 +8,8 @@
     log-graph = log --graph --pretty=format:\"%C(yellow)[%ci] %C(blue)%h %C(magenta)%an %C(cyan)%s\"
 [core]
     editor = vim
-    pager = delta
 [init]
     defaultBranch = main
-[diff]
-    colorMoved = default
 [commit]
     gpgsign = true
 [push]
@@ -21,12 +18,3 @@
     rebase = false
 [ghq]
     root = ~/src
-[delta]
-    zero-style = normal
-    plus-style = green
-    plus-emph-style = black green
-    minus-style = red
-    minus-emph-style = black red
-    line-numbers = true
-[interactive]
-    diffFilter = delta --color-only
