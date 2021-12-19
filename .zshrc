@@ -11,6 +11,7 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
+  /opt/homebrew/opt/go@1.16/bin(N-/)
   /opt/homebrew/opt/ruby@2.7/bin(N-/)
   /opt/homebrew/opt/node@16/bin(N-/)
   /opt/homebrew/opt/openssl@1.1/bin(N-/)
