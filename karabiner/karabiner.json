@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Left ctrl + np to arrow keys up/down",
+                        "description": "Left ctrl + npbf to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
@@ -58,25 +58,6 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "f",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
@@ -90,6 +71,25 @@
                                 "to": [
                                     {
                                         "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
                                     }
                                 ],
                                 "type": "basic"
