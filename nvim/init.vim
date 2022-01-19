@@ -55,6 +55,7 @@ nnoremap <ESC><ESC> :on<CR>
 nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>r :QuickRun<CR>
 nnoremap <Tab> :Buffers<CR>
 nnoremap q/ <NOP>
