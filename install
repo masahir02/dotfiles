@@ -33,6 +33,7 @@ dotfiles=(
 for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
 
 dotconfigs=(
+  karabiner
   nvim
   git
 )
