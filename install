@@ -39,7 +39,5 @@ dotconfigs=(
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
-[[ ! -f $HOME/.gitconfig ]] && cp -v $dotfiles_dir/.gitconfig $HOME
-
 brew bundle --global
 nvim +PlugInstall +qa
