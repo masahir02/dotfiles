@@ -40,6 +40,7 @@ alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g BQ='| bq query --nouse_legacy_sql'
 alias -g GIST='| gh gist create -w -'
+alias -g FV="| fzf | sed -e 's/:\s\+.\+$//g' | xargs nvim"
 
 # GNU
 alias ls='gls --color'
