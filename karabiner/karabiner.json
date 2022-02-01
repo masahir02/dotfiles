@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "left ctrl + npbf = arrow keys",
+                        "description": "left ctrl + npbf => arrow keys",
                         "manipulators": [
                             {
                                 "conditions": [
