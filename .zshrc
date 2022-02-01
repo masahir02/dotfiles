@@ -36,7 +36,7 @@ alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
 alias python='python3'
 
-alias -g F="| fzf | sed -e 's/:\s\+.\+$//g' | xargs nvim"
+alias -g F="| fzf | sed -e 's/:.\+$//g' | xargs nvim"
 alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g BQ='| bq query --nouse_legacy_sql'
