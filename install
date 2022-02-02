@@ -39,5 +39,8 @@ dotconfigs=(
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
+# vs-code
+ln -sfv $dotfiles_dir/settings.json $HOME/Library/Application\ Support/Code/User/
+
 brew bundle --global
 nvim +PlugInstall +qa
