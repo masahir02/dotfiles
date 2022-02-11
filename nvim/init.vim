@@ -1,16 +1,15 @@
 " plugins
 call plug#begin("$HOME/.local/share/nvim/plugged")
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/neosnippet.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -60,15 +59,6 @@ nnoremap <Leader>h :History<CR>
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>r :QuickRun<CR>
 nnoremap <Tab> :Buffers<CR>
-nnoremap q/ <NOP>
-nnoremap q: <NOP>
-nnoremap q? <NOP>
-
-" vnoremap p "0p
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
 
 set autoindent
 set autoread
