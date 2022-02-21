@@ -3,16 +3,16 @@ call plug#begin("$HOME/.local/share/nvim/plugged")
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'natebosch/vim-lsc'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
+let g:lsc_auto_map = v:true
 let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': 'enew' }
 let g:quickrun_config = {
@@ -59,6 +59,11 @@ nnoremap <Leader>h :History<CR>
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>r :QuickRun<CR>
 nnoremap <Tab> :Buffers<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 set autoindent
 set autoread
