@@ -182,7 +182,6 @@ fi
 export GOPATH=$HOME
 export GGO111MODULE=on
 
-
 # Zinit
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
