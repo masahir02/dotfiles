@@ -18,3 +18,5 @@
     rebase = false
 [ghq]
     root = ~/src
+[gpg]
+    program = /opt/homebrew/bin/gpg
