@@ -163,6 +163,9 @@ bindkey '^\' fzf-src
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# asdf
+source $(brew --prefix asdf)/libexec/asdf.sh
+
 # source files
 source_files=(
   $HOME/.zshrc.local
