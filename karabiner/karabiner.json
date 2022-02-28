@@ -355,7 +355,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "dictation"
+                            "apple_vendor_top_case_key_code": "illumination_down"
                         }
                     ]
                 },
@@ -365,7 +365,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f6"
+                            "apple_vendor_top_case_key_code": "illumination_up"
                         }
                     ]
                 },
