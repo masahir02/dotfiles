@@ -129,7 +129,7 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 bindkey '^J' self-insert
 
-ctrl-z() {
+function ctrl-z() {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
     zle accept-line
@@ -141,7 +141,7 @@ ctrl-z() {
 zle -N ctrl-z
 bindkey '^Z' ctrl-z
 
-fzf-history() {
+function fzf-history() {
   local hist_id=$(history | fzf --no-sort | awk '{print $1}' | sed -e 's/[^0-9]//g')
   if [ -n "$hist_id" ]; then
     BUFFER="!${hist_id}"
@@ -151,7 +151,7 @@ fzf-history() {
 zle -N fzf-history
 bindkey '^R' fzf-history
 
-fzf-src() {
+function fzf-src() {
   local repo_dir=$(ghq list --full-path | sort | fzf)
   if [ -n "$repo_dir" ]; then
     BUFFER="cd ${repo_dir}"
@@ -161,7 +161,7 @@ fzf-src() {
 zle -N fzf-src
 bindkey '^\' fzf-src
 
-pet-select() {
+function pet-select() {
   BUFFER=$(pet search --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle redisplay
