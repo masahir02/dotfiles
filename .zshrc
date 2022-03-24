@@ -161,6 +161,15 @@ fzf-src() {
 zle -N fzf-src
 bindkey '^\' fzf-src
 
+pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^s' pet-select
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
