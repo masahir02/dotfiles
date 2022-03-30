@@ -10,8 +10,10 @@ gibo update
 
 yes | gcloud components update
 
+asdf plugin-update --all
+
 source ~/.zshrc
 zinit self-update
 zinit update --all
 
-vim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
+vim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +CocUpdate +qa
