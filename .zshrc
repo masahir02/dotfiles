@@ -33,7 +33,6 @@ alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
 alias python='python3'
 
-alias -g F="| fzf | sed -e 's/:.\+$//g' | xargs nvim"
 alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g BQ='| bq query --nouse_legacy_sql'
@@ -161,14 +160,7 @@ function fzf-src() {
 zle -N fzf-src
 bindkey '^\' fzf-src
 
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N pet-select
-stty -ixon
-bindkey '^s' pet-select
+
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
