@@ -1408,11 +1408,11 @@
 	<key>WindowTitle</key>
 	<string></string>
 	<key>columnCount</key>
-	<integer>179</integer>
+	<integer>130</integer>
 	<key>name</key>
 	<string>masa</string>
 	<key>rowCount</key>
-	<integer>44</integer>
+	<integer>33</integer>
 	<key>scrollOnInput</key>
 	<false/>
 	<key>shellExitAction</key>
