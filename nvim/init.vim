@@ -52,13 +52,17 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <ESC><ESC> :on<CR>
 nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
-nnoremap <Leader>q :q<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>n :enew<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>r :QuickRun<CR>
 nnoremap <Tab> :Buffers<CR>
+nnoremap c "_c
+nnoremap s "_s
+nnoremap x "_x
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
