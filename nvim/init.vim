@@ -61,7 +61,7 @@ nnoremap <Leader>r :QuickRun<CR>
 nnoremap <Tab> :Buffers<CR>
 nnoremap c "_c
 nnoremap s "_s
-nnoremap x "_x
+nnoremap S "_S
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 
 nmap <silent> gd <Plug>(coc-definition)
