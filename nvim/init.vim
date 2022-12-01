@@ -52,12 +52,11 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <ESC><ESC> :on<CR>
 nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
-nnoremap <Leader>x :bd<CR>
-nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>r :QuickRun<CR>
-nnoremap <Tab> :Buffers<CR>
+nnoremap <Tab> :Files<CR>
 nnoremap c "_c
 nnoremap s "_s
 nnoremap S "_S
