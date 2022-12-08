@@ -50,13 +50,16 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 nnoremap <ESC><ESC> :on<CR>
-nnoremap <Leader><Space> :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <Leader>/ :set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>
+nnoremap <Leader><Space> :Files<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :enew<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>r :QuickRun<CR>
-nnoremap <Tab> :Files<CR>
+nnoremap <Tab> :Buffers<CR>
 nnoremap c "_c
 nnoremap s "_s
 nnoremap S "_S
