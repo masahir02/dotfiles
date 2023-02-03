@@ -16,4 +16,4 @@ source ~/.zshrc
 zinit self-update
 zinit update --all
 
-vim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +CocUpdate +qa
+vim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +CocUpdateSync +qa
