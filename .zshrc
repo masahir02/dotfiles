@@ -207,3 +207,5 @@ function() {
     fi
   fi
 }
+
+source /Users/masa/.docker/init-zsh.sh || true # Added by Docker Desktop
