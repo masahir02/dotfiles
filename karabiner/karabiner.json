@@ -198,10 +198,10 @@
                                 "from": {
                                     "simultaneous": [
                                         {
-                                            "pointing_button": "button1"
+                                            "pointing_button": "button2"
                                         },
                                         {
-                                            "pointing_button": "button4"
+                                            "pointing_button": "button3"
                                         }
                                     ]
                                 },
