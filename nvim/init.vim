@@ -13,7 +13,7 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 let g:lsc_auto_map = v:true
-let g:fzf_preview_window = []
+let g:fzf_preview_window = ['hidden,right,50%', 'ctrl-k']
 let g:fzf_layout = { 'window': 'enew' }
 let g:quickrun_config = {
 \ '_': {
