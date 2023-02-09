@@ -142,7 +142,7 @@ zle -N ctrl-z
 bindkey '^Z' ctrl-z
 
 function fzf-history() {
-  local hist_id=$(history | fzf --no-sort | awk '{print $1}' | sed -e 's/[^0-9]//g')
+  local hist_id=$(history | fzf --no-sort --preview "echo -n {4..}" --preview-window 'up:3:nohidden:wrap' --bind 'ctrl-k:toggle-preview' | awk '{print $1}' | sed -e 's/[^0-9]//g')
   if [ -n "$hist_id" ]; then
     BUFFER="!${hist_id}"
     zle accept-line
