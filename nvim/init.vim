@@ -22,6 +22,9 @@ let g:quickrun_config = {
 \ },
 \}
 
+syntax on
+colorscheme nord
+
 " chmod +x
 autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %
 " mkdir -p
