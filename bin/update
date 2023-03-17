@@ -8,7 +8,7 @@ brew bundle cleanup --force --global
 
 gibo update
 
-yes | gcloud components update
+gcloud components update --quiet
 
 asdf plugin-update --all
 

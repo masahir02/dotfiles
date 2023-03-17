@@ -1,5 +1,6 @@
 " plugins
 call plug#begin("$HOME/.local/share/nvim/plugged")
+Plug 'akinsho/flutter-tools.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
