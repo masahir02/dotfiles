@@ -14,6 +14,8 @@ vim.keymap.set('n', '<Leader>q', ':q<CR>')
 vim.keymap.set('n', 'c', '"_c')
 vim.keymap.set('n', 's', '"_s')
 vim.keymap.set('n', 'S', '"_S')
+vim.keymap.set('n', 'q:', '')
+vim.keymap.set('n', 'q/', '')
 
 vim.cmd([[xnoremap <expr> p 'pgv"'.v:register.'y`>']])
 
