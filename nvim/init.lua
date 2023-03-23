@@ -13,12 +13,20 @@ vim.keymap.set('n', '<Leader>n', ':enew<CR>')
 vim.keymap.set('n', '<Leader>q', ':q<CR>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
+vim.keymap.set('n', 'x', '"_x')
+vim.keymap.set('n', 's', '"_s')
+vim.keymap.set('n', 'c', '"_c')
+vim.keymap.set('x', 'p', '"_xP')
 
-vim.cmd([[xnoremap <expr> p 'pgv"'.v:register.'y`>']])
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
+  pattern = '*',
+  command = 'if getline(1) =~ "^#!" | :silent !chmod +x %'
+})
 
-vim.cmd([[autocmd BufWritePost * if getline(1) =~ "^#!" | :silent !chmod +x %]])
-
-vim.cmd([[autocmd BufWritePre * :silent !mkdir -p %:p:h]])
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
+  pattern = '*',
+  command = ':silent !mkdir -p %:p:h'
+})
 
 vim.api.nvim_create_autocmd({'FileType'}, {
   pattern = 'go',
