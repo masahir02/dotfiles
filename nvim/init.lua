@@ -11,9 +11,6 @@ vim.keymap.set('n', '<Leader>/', ':set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<
 vim.keymap.set('n', '<Leader>d', ':bd<CR>')
 vim.keymap.set('n', '<Leader>n', ':enew<CR>')
 vim.keymap.set('n', '<Leader>q', ':q<CR>')
-vim.keymap.set('n', 'c', '"_c')
-vim.keymap.set('n', 's', '"_s')
-vim.keymap.set('n', 'S', '"_S')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
 
@@ -60,7 +57,7 @@ vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.laststatus = 2
 vim.opt.list = true
-vim.opt.listchars = { tab = '>.', trail = '_', eol = '↵' }
+vim.opt.listchars = { tab = '| ', trail = '_', eol = '↵' }
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.scrolloff = 5

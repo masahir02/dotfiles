@@ -16,4 +16,4 @@ source ~/.zshrc
 zinit self-update
 zinit update --all
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' -c 'MasonUpdate'
