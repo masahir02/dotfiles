@@ -78,6 +78,13 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-surround'
 
+  use {
+    'yamatsum/nvim-cursorline',
+    config = function()
+      require('nvim-cursorline').setup {}
+    end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
