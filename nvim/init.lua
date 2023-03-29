@@ -80,4 +80,4 @@ vim.opt.tabstop = 2
 vim.opt.wildmenu = true
 vim.opt.wrap = false
 
-require("plugins")
+require('plugins')
