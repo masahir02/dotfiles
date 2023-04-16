@@ -165,11 +165,7 @@ bindkey '^\' fzf-src
 
 
 # homebrew
-if [ $(uname) = 'Darwin' ] ; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
@@ -177,8 +173,6 @@ source $(brew --prefix asdf)/libexec/asdf.sh
 # source files
 source_files=(
   $HOME/.zshrc.local
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
   $HOME/bin/google-cloud-sdk/path.zsh.inc
   $HOME/bin/google-cloud-sdk/completion.zsh.inc
 )
@@ -214,5 +208,3 @@ function() {
     fi
   fi
 }
-
-#source /Users/masa/.docker/init-zsh.sh || true # Added by Docker Desktop
