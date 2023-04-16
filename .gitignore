@@ -1,2 +1,4 @@
 bin
 karabiner/automatic_backups/
+nvim/plugin/packer_compiled.lua
+.Brewfile

@@ -11,8 +11,9 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
-  /opt/homebrew/opt/openssl@1.1/bin(N-/)
-  /opt/homebrew/bin(N-/)
+  $HOMEBREW_PREFIX/opt/openjdk@11/bin(N-/)
+  $HOMEBREW_PREFIX/opt/openssl@1.1/bin(N-/)
+  $HOMEBREW_PREFIX/homebrew/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
   /usr/sbin
@@ -164,7 +165,11 @@ bindkey '^\' fzf-src
 
 
 # homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ $(uname) = 'Darwin' ] ; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
@@ -174,6 +179,8 @@ source_files=(
   $HOME/.zshrc.local
   $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
   $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  $HOME/bin/google-cloud-sdk/path.zsh.inc
+  $HOME/bin/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
@@ -208,4 +215,4 @@ function() {
   fi
 }
 
-source /Users/masa/.docker/init-zsh.sh || true # Added by Docker Desktop
+#source /Users/masa/.docker/init-zsh.sh || true # Added by Docker Desktop
