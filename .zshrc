@@ -164,11 +164,7 @@ bindkey '^\' fzf-src
 
 
 # homebrew
-if [ $(uname) = 'Darwin' ] ; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
