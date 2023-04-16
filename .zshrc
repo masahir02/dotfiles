@@ -11,7 +11,6 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
-  $HOMEBREW_PREFIX/opt/openjdk@11/bin(N-/)
   $HOMEBREW_PREFIX/opt/openssl@1.1/bin(N-/)
   $HOMEBREW_PREFIX/homebrew/bin(N-/)
   /usr/local/sbin
