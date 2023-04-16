@@ -20,7 +20,7 @@
 [ghq]
     root = ~/src
 [gpg]
-    program = /home/linuxbrew/.linuxbrew/bin/gpg
+    program = /opt/homebrew/bin/gpg
 [delta]
     zero-style = normal
     plus-style = green

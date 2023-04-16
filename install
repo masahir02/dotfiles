@@ -15,12 +15,6 @@ if [ ! -d $dotfiles_dir ]; then
   git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
 fi
 
-if [ $(uname) = 'Darwin' ]; then
-  ln -sfv $dotfiles_dir/.Brewfile.mac $dotfiles_dir/.Brewfile 
-else
-  ln -sfv $dotfiles_dir/.Brewfile.linux $dotfiles_dir/.Brewfile 
-fi
-
 dotfiles=(
   .gemrc
   .psqlrc
