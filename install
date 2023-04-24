@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
 
-# https://brew.sh/
-if ! which brew > /dev/null; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-# https://github.com/zdharma-continuum/zinit
-if [ ! -d $HOME/.local/share/zinit ]; then
-  sh -c "$(curl -fsSL https://git.io/zinit-install)"
+if [ $(uname) = 'Darwin' ]; then
+  if [[ $(sysctl -a | grep 'kern.version') =~ 'ARM64' ]]; then
+    prefix='/opt/homebrew'
+    branch='darwin/arm64'
+  else
+    prefix='/usr/local'
+    branch='darwin/amd64'
+  fi
+else
+  prefix='/home/linuxbrew/.linuxbrew'
+  branch='linux'
 fi
 
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
-  git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
+  git clone -b $branch git@github.com:masahir02/dotfiles.git $dotfiles_dir
 fi
 
 dotfiles=(
@@ -25,6 +28,10 @@ dotfiles=(
 )
 for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
 
+if [ ! -d $HOME/.config ]; then
+  mkdir $HOME/.config
+fi
+
 dotconfigs=(
   karabiner
   nvim
@@ -32,4 +39,5 @@ dotconfigs=(
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
+eval "$(${prefix}/bin/brew shellenv)"
 brew bundle --global
