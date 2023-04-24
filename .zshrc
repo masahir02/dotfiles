@@ -34,6 +34,8 @@ alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
 alias python='python3'
 alias jq='gojq'
+alias pbcopy='xsel -bi'
+alias pbpaste='xsel -bo'
 
 alias -g L='| less -R'
 alias -g V='| vim -R -'
