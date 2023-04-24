@@ -2,7 +2,7 @@
 
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
-  git clone -b darwin/arm64 git@github.com:masahir02/dotfiles.git $dotfiles_dir
+  git clone -b darwin/amd64 git@github.com:masahir02/dotfiles.git $dotfiles_dir
 fi
 
 dotfiles=(
@@ -26,5 +26,5 @@ dotconfigs=(
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 brew bundle --global
