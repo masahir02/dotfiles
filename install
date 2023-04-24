@@ -1,21 +1,8 @@
 #!/usr/bin/env bash
 
-if [ $(uname) = 'Darwin' ]; then
-  if [[ $(sysctl -a | grep 'kern.version') =~ 'ARM64' ]]; then
-    prefix='/opt/homebrew'
-    branch='darwin/arm64'
-  else
-    prefix='/usr/local'
-    branch='darwin/amd64'
-  fi
-else
-  prefix='/home/linuxbrew/.linuxbrew'
-  branch='linux'
-fi
-
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
-  git clone -b $branch git@github.com:masahir02/dotfiles.git $dotfiles_dir
+  git clone -b darwin/arm64 git@github.com:masahir02/dotfiles.git $dotfiles_dir
 fi
 
 dotfiles=(
@@ -39,5 +26,5 @@ dotconfigs=(
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
-eval "$(${prefix}/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --global
