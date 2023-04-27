@@ -43,12 +43,6 @@ alias -g BQ='| bq query --nouse_legacy_sql'
 alias -g GIST='| gh gist create -w -'
 alias -g J='| json_xs'
 
-# GNU
-alias ls='gls --color'
-alias date='gdate'
-alias sed='gsed'
-alias zcat='gzcat'
-
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 autoload -U +X compinit && compinit
