@@ -22,11 +22,11 @@ if [ ! -d $HOME/.config ]; then
 fi
 
 dotconfigs=(
-  karabiner
-  nvim
-  git
+  .config/karabiner
+  .config/nvim
+  .config/git
 )
-for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/.config/$dotconfig $HOME/.config; done
+for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --global
