@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
   git clone -b linux git@github.com:masahir02/dotfiles.git $dotfiles_dir
@@ -20,8 +22,8 @@ if [ ! -d $HOME/.config ]; then
 fi
 
 dotconfigs=(
-  nvim
-  git
+  .config/nvim
+  .config/git
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
