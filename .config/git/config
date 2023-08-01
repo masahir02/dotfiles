@@ -5,6 +5,7 @@
 [color]
     ui = auto
 [alias]
+    diffw = diff -w
     log-graph = log --graph --pretty=format:\"%C(yellow)[%ci] %C(blue)%h %C(magenta)%an %C(cyan)%s\"
 [core]
     editor = vim
@@ -12,7 +13,7 @@
 [init]
     defaultBranch = main
 [commit]
-    gpgsign = true
+    gpgsign = false
 [push]
     default = simple
 [pull]
@@ -20,7 +21,7 @@
 [ghq]
     root = ~/src
 [gpg]
-    program = /usr/local/bin/gpg
+    program = /home/linuxbrew/.linuxbrew/bin/gpg
 [delta]
     zero-style = normal
     plus-style = green

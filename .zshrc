@@ -35,18 +35,14 @@ alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git"'
 alias python='python3'
 alias jq='gojq'
+alias pbcopy='xsel -bi'
+alias pbpaste='xsel -bo'
 
 alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g BQ='| bq query --nouse_legacy_sql'
 alias -g GIST='| gh gist create -w -'
 alias -g J='| json_xs'
-
-# GNU
-alias ls='gls --color'
-alias date='gdate'
-alias sed='gsed'
-alias zcat='gzcat'
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
@@ -166,7 +162,7 @@ bindkey '^\' fzf-src
 
 
 # homebrew
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
@@ -174,8 +170,8 @@ source $(brew --prefix asdf)/libexec/asdf.sh
 # source files
 source_files=(
   $HOME/.zshrc.local
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-  $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  $HOME/bin/google-cloud-sdk/path.zsh.inc
+  $HOME/bin/google-cloud-sdk/completion.zsh.inc
 )
 for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 
