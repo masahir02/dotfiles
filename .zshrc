@@ -202,6 +202,9 @@ zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 
+complete -o nospace -C $(asdf where terraform)/bin/terraform terraform
+
+
 # start tmux
 function() {
   local session_name=$(hostname | cut -d. -f1)

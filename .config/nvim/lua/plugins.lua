@@ -78,6 +78,8 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-surround'
 
+  use 'sheerun/vim-polyglot'
+
   use {
     'yamatsum/nvim-cursorline',
     config = function()
