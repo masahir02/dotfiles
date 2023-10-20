@@ -37,6 +37,8 @@ alias tree='tree --dirsfirst -N -C -I "__*|.git"'
 alias python='python3'
 alias jq='gojq'
 
+alias ima='date +%FT%T'
+
 alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g BQ='| bq query --nouse_legacy_sql'
