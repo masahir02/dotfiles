@@ -9,5 +9,5 @@ require('fzf-lua').setup{
 }
 
 local builtin = require('fzf-lua')
-vim.keymap.set('n', '<Leader><space>', builtin.files, {})
+vim.keymap.set('n', '<Leader><space>', builtin.builtin, {})
 vim.keymap.set('n', '<Tab>', builtin.buffers, {})
