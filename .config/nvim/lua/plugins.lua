@@ -28,10 +28,10 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-telescope/telescope.nvim',
+    'ibhagwan/fzf-lua',
     requires = {
-      { 'nvim-lua/plenary.nvim' },
-    },
+      'nvim-tree/nvim-web-devicons',
+    }
   }
 
   use {
