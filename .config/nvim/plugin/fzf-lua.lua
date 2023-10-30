@@ -6,6 +6,12 @@ require('fzf-lua').setup{
       vertical = 'down:70%',
     },
   },
+  keymap     = {
+    builtin = {
+      ['<C-d>'] = 'preview-page-down',
+      ['<C-u>'] = 'preview-page-up',
+    },
+  },
 }
 
 local builtin = require('fzf-lua')
