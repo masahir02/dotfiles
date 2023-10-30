@@ -11,3 +11,5 @@ require('fzf-lua').setup{
 local builtin = require('fzf-lua')
 vim.keymap.set('n', '<Leader><space>', builtin.builtin, {})
 vim.keymap.set('n', '<Tab>', builtin.buffers, {})
+vim.keymap.set('n', '<Leader>f', builtin.files, {})
+vim.keymap.set('n', '<Leader>g', builtin.live_grep, {})
