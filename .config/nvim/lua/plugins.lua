@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'arcticicestudio/nord-vim',
+    'nordtheme/vim',
     config = function()
       vim.cmd('colorscheme nord')
     end
