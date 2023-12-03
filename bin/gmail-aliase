@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-alias=$(cat /dev/urandom | LC_ALL=C tr -dc '[:digit:][:lower:]' | head -c 10)
-[[ ! -z "$GMAIL" ]] && echo $GMAIL | sed -e "s/@/+${alias}@/" | tee >(pbcopy)

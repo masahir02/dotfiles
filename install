@@ -13,7 +13,6 @@ dotfiles=(
   .tmux.conf
   .zshrc
   .Brewfile
-  bin
 )
 for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
 
@@ -30,3 +29,6 @@ for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.co
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --global
+
+cp $dotfiles_dir/update.plist $HOME/Library/LaunchAgents/masahir02.update.plist
+launchctl load $HOME/Library/LaunchAgents/masahir02.update.plist
