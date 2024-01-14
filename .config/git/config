@@ -5,7 +5,6 @@
 [color]
     ui = auto
 [alias]
-    diffw = diff -w
     log-graph = log --graph --pretty=format:\"%C(yellow)[%ci] %C(blue)%h %C(magenta)%an %C(cyan)%s\"
 [core]
     editor = vim
