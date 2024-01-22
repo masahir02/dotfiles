@@ -6,7 +6,7 @@
     <string>masahir02.update</string>
     <key>ProgramArguments</key>
     <array>
-      <string>sh</string>
+      <string>/bin/zsh</string>
       <string>-c</string>
       <string>$HOME/src/github.com/masahir02/dotfiles/update</string>
     </array>
@@ -19,5 +19,9 @@
         <integer>0</integer>
       </dict>
     </array>
+    <key>StandardOutPath</key>
+    <string>$HOME/src/github.com/masahir02/dotfiles/update.out</string>
+    <key>StandardErrorPath</key>
+    <string>$HOME/src/github.com/masahir02/dotfiles/update.err</string>
   </dict>
 </plist>
