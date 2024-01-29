@@ -77,11 +77,11 @@
                         ]
                     },
                     {
-                        "description": "button1 + mouse motion => scroll",
+                        "description": "button2 + mouse motion => scroll",
                         "manipulators": [
                             {
                                 "from": {
-                                    "pointing_button": "button1"
+                                    "pointing_button": "button2"
                                 },
                                 "to_after_key_up": [
                                     {
@@ -93,7 +93,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "pointing_button": "button1"
+                                        "pointing_button": "button2"
                                     }
                                 ],
                                 "to_if_held_down": [
