@@ -14,9 +14,58 @@
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 80,
-                    "mouse_motion_to_scroll.speed": 100
+                    "mouse_motion_to_scroll.speed": 500
                 },
                 "rules": [
+                    {
+                        "description": "button1 + mouse motion => scroll",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "pointing_button": "button1"
+                                },
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "enable_mouse_motion_to_scroll",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "pointing_button": "button1"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "enable_mouse_motion_to_scroll",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "enable_mouse_motion_to_scroll",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "type": "mouse_motion_to_scroll"
+                            }
+                        ]
+                    },
                     {
                         "description": "delete => cmd + backspace",
                         "manipulators": [
