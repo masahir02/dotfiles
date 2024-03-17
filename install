@@ -29,7 +29,3 @@ for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.co
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --global
-
-update_plist=$HOME/Library/LaunchAgents/masahir02.update.plist
-cp $dotfiles_dir/update.plist $update_plist
-launchctl load -w $update_plist
