@@ -204,7 +204,9 @@ zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 
-complete -o nospace -C $(asdf where terraform)/bin/terraform terraform
+if which terraform > /dev/null 2>&1 ; then
+  complete -o nospace -C $(asdf where terraform)/bin/terraform terraform
+fi
 
 
 # start tmux
