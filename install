@@ -2,6 +2,16 @@
 
 set -e
 
+if ssh -T git@github.com 2>&1 | grep 'Permission denied'; then
+  echo 'Add SSH key to GitHub. https://github.com/settings/keys'
+  exit 1
+fi
+
+if ! which brew; then
+  echo 'Install Homebrew. https://brew.sh/'
+  exit 1
+fi
+
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
   git clone -b darwin/arm64 git@github.com:masahir02/dotfiles.git $dotfiles_dir
