@@ -89,6 +89,8 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
+  use 'prisma/vim-prisma'
+
   if packer_bootstrap then
     require('packer').sync()
   end
