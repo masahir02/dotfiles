@@ -23,6 +23,7 @@ dotfiles=(
   .tmux.conf
   .zshrc
   .Brewfile
+  .tool-versions
 )
 for dotfile in ${dotfiles[@]}; do ln -sfv $dotfiles_dir/$dotfile $HOME; done
 
