@@ -7,5 +7,5 @@ cocoapods 1.14.2
 ruby 3.2.2
 python 3.11.2
 swag 1.16.3
-nodejs 16.15.0
+nodejs 20.12.2
 firebase 13.11.3
