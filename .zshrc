@@ -11,9 +11,7 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
-  $HOME/.docker/bin(N-/)
   $HOMEBREW_PREFIX/opt/postgresql@16/bin(N-/)
-  $HOMEBREW_PREFIX/opt/openssl@1.1/bin(N-/)
   $HOMEBREW_PREFIX/homebrew/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
