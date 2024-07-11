@@ -4,7 +4,6 @@
 \pset null '[null]'
 \pset pager
 \timing
-\x auto
 \set VERBOSITY verbose
 \set HISTFILE ~/.psql_history- :DBNAME
 \set HISTCONTROL ignoredups
