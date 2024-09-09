@@ -10,7 +10,7 @@ require('mason').setup({
 
 require("mason-lspconfig").setup_handlers {
   function (server_name)
-    require('lspconfig')[server_name].setup({
+    require('lspconfig')['ts_ls'].setup({
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
