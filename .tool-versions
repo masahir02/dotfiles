@@ -2,7 +2,7 @@ golang 1.22.3
 yarn 1.22.22
 terraform 1.9.0
 ruby 3.3.3
-python 3.11.2
+python 3.12.6
 swag 1.16.3
 nodejs 20.12.2
 firebase 13.11.3
