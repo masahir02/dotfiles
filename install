@@ -7,7 +7,7 @@ if ssh -T git@github.com 2>&1 | grep 'Permission denied'; then
   exit 1
 fi
 
-if ! which brew; then
+if ! /opt/homebrew/bin/brew help > /dev/null 2>&1; then
   echo 'Install Homebrew. https://brew.sh/'
   exit 1
 fi
