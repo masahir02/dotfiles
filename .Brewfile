@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 brew "coreutils"
 brew "openssl@3"
 brew "asdf"
