@@ -11,7 +11,7 @@ fpath=(
 
 path=(
   $HOME/bin(N-/)
-  $HOMEBREW_PREFIX/opt/postgresql@16/bin(N-/)
+  $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin(N-/)
   $HOMEBREW_PREFIX/homebrew/bin(N-/)
   /usr/local/sbin
   /usr/local/bin
@@ -215,5 +215,3 @@ function() {
     fi
   fi
 }
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
