@@ -146,6 +146,14 @@
                             "to": [{ "key_code": "right_command" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 53296,
+                        "vendor_id": 13364
+                    },
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
