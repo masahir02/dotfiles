@@ -38,7 +38,6 @@ alias -g L='| less -R'
 alias -g V='| vim -R -'
 alias -g BQ='| bq query --nouse_legacy_sql'
 alias -g GIST='| gh gist create -w -'
-alias -g J='| json_xs'
 
 # GNU
 alias ls='gls --color'
