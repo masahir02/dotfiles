@@ -1,9 +1,12 @@
 {
-    "global": { "show_in_menu_bar": false },
+    "global": {
+        "ask_for_confirmation_before_quitting": false,
+        "enable_notification_window": false,
+        "show_in_menu_bar": false
+    },
     "profiles": [
         {
             "complex_modifications": {
-                "parameters": { "mouse_motion_to_scroll.speed": 500 },
                 "rules": [
                     {
                         "description": "delete => cmd + backspace",
@@ -174,7 +177,10 @@
                     "to": [{ "key_code": "left_control" }]
                 }
             ],
-            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+            "virtual_hid_keyboard": {
+                "indicate_sticky_modifier_keys_state": false,
+                "keyboard_type_v2": "ansi"
+            }
         }
     ]
 }
