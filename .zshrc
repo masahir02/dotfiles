@@ -36,6 +36,7 @@ alias jq='gojq'
 
 alias -g L='| less -R'
 alias -g V='| vim -R -'
+alias -g J='| jq'
 alias -g BQ='| bq query --nouse_legacy_sql'
 alias -g GIST='| gh gist create -w -'
 
