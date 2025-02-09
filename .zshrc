@@ -4,6 +4,11 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='find . -type f | grep -Ev "(.git\/|__pycache__)"'
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
+fpath=(
+  $HOMEBREW_PREFIX/share/zsh/site-functions(N-/)
+  $fpath
+)
+
 alias vi='nvim'
 alias vim='nvim'
 alias grep='grep --color=auto'
@@ -148,17 +153,13 @@ bindkey '^\' fzf-src
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+
 path=(
   $HOME/bin(N-/)
   $HOME/.asdf/shims(N-/) # asdfを優先する
   $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin(N-/)
   $path
 )
-fpath=(
-  $HOMEBREW_PREFIX/share/zsh/site-functions(N-/)
-  $fpath
-)
-
 # source files
 source_files=(
   $HOME/.zshrc.local
