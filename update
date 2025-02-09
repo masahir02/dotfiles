@@ -10,7 +10,7 @@ gibo update
 
 gcloud components update --quiet
 
-asdf plugin-update --all
+asdf plugin update --all
 
 source ~/.zshrc
 zinit self-update
