@@ -93,6 +93,17 @@ return require('packer').startup(function(use)
 
   use 'github/copilot.vim'
 
+  use {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    requires = {
+      { 'github/copilot.vim' },
+      { 'nvim-lua/plenary.nvim'},
+    },
+    config = function()
+      require("CopilotChat").setup {}
+    end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
