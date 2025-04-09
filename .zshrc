@@ -156,7 +156,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 path=(
   $HOME/bin(N-/)
-  $HOME/.asdf/shims(N-/) # asdfを優先する
   $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin(N-/)
   $path
 )
