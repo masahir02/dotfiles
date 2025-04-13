@@ -5,6 +5,7 @@ export FZF_DEFAULT_COMMAND='find . -type f | grep -Ev "(.git\/|__pycache__)"'
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
 fpath=(
+  $HOME/.asdf/completions(N-/)
   $HOMEBREW_PREFIX/share/zsh/site-functions(N-/)
   $fpath
 )
@@ -19,7 +20,6 @@ alias rake='noglob rake'
 alias history='history -r -i 1 L'
 alias diff='diff -u'
 alias tree='tree --dirsfirst -N -C -I "__*|.git|node_modules"'
-alias python='python3'
 alias jq='gojq'
 
 alias -g L='| less -R'
@@ -153,9 +153,11 @@ bindkey '^\' fzf-src
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+mkdir -p $HOME/.asdf/completions && asdf completion zsh > $HOME/.asdf/completions/_asdf
 
 path=(
   $HOME/bin(N-/)
+  $HOME/.asdf/shims(N-/)
   $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin(N-/)
   $path
 )
