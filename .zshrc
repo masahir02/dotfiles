@@ -5,8 +5,8 @@ export FZF_DEFAULT_COMMAND='find . -type f | grep -Ev "(.git\/|__pycache__)"'
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
 fpath=(
-  $HOME/.asdf/completions(N-/)
-  $HOMEBREW_PREFIX/share/zsh/site-functions(N-/)
+  $HOME/.asdf/completions
+  $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
 )
 
@@ -156,9 +156,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 mkdir -p $HOME/.asdf/completions && asdf completion zsh > $HOME/.asdf/completions/_asdf
 
 path=(
-  $HOME/bin(N-/)
-  $HOME/.asdf/shims(N-/)
-  $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin(N-/)
+  $HOME/bin
+  $HOME/.asdf/shims
+  $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin
   $path
 )
 # source files
