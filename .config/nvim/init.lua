@@ -108,6 +108,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
+    { 'nvim-tree/nvim-web-devicons', opts = {} },
+
     {
       'ibhagwan/fzf-lua',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -115,7 +117,7 @@ require('lazy').setup({
         winopts = {
           fullscreen = true,
           preview = {
-            layout = 'holizontal',
+            layout = 'vertical',
             vertical = 'down:70%',
           },
         },
@@ -221,6 +223,23 @@ require('lazy').setup({
       config = function()
         vim.cmd[[colorscheme tokyonight]]
       end,
+    },
+  },
+  ui = {
+    icons = {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
     },
   },
   checker = { enabled = true },
