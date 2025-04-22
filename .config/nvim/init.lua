@@ -76,9 +76,19 @@ vim.opt.tabstop = 2
 vim.opt.wildmenu = true
 vim.opt.wrap = false
 
-
-
-
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 4,
+    severity = vim.diagnostic.severity.ERROR,
+    source = "if_many",
+    format = function(diagnostic)
+      return diagnostic.message
+    end,
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -150,9 +160,10 @@ require('lazy').setup({
             vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
           end
           bufmap('n', 'gd', vim.lsp.buf.definition)
+          bufmap('n', 'gi', vim.lsp.buf.implementation)
+          bufmap('n', 'gr', vim.lsp.buf.references)
           bufmap('n', 'K', vim.lsp.buf.hover)
           bufmap('n', '<leader>rn', vim.lsp.buf.rename)
-          bufmap('n', 'gr', vim.lsp.buf.references)
           bufmap('n', '[d', vim.diagnostic.goto_prev)
           bufmap('n', ']d', vim.diagnostic.goto_next)
         end
@@ -193,12 +204,12 @@ require('lazy').setup({
     },
 
     {
-      "CopilotC-Nvim/CopilotChat.nvim",
+      'CopilotC-Nvim/CopilotChat.nvim',
       dependencies = {
-        { "github/copilot.vim" },
-        { "nvim-lua/plenary.nvim", branch = "master" },
+        { 'github/copilot.vim' },
+        { 'nvim-lua/plenary.nvim', branch = 'master' },
       },
-      build = "make tiktoken",
+      build = 'make tiktoken',
       opts = {},
     },
 
