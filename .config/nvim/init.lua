@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd({'BufWritePre'}, {
 
 vim.api.nvim_create_autocmd({'FileType'}, {
   pattern = 'go',
-  callback = function(args)
+  callback = function()
     vim.opt.expandtab = false
     vim.opt.shiftwidth = 8
     vim.opt.softtabstop = 8
@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd({'FileType'}, {
 
 vim.api.nvim_create_autocmd({'FileType'}, {
   pattern = 'python',
-  callback = function(args)
+  callback = function()
     vim.opt.shiftwidth = 4
     vim.opt.softtabstop = 4
     vim.opt.tabstop = 4
@@ -155,9 +155,7 @@ require('lazy').setup({
         require('mason').setup()
         require('mason-lspconfig').setup()
 
-        local lspconfig = require('lspconfig')
-
-        local on_attach = function(client, bufnr)
+        local on_attach = function(_, bufnr)
           local bufmap = function(mode, lhs, rhs)
             vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
           end
@@ -173,7 +171,6 @@ require('lazy').setup({
         require('mason-lspconfig').setup_handlers {
           function(server_name)
             require('lspconfig')[server_name].setup({
-              capabilities = capabilities,
               on_attach = on_attach,
             })
           end,
