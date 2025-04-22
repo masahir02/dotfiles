@@ -193,11 +193,13 @@ require('lazy').setup({
     },
 
     {
-      'CopilotC-Nvim/CopilotChat.nvim',
+      "CopilotC-Nvim/CopilotChat.nvim",
       dependencies = {
-        'github/copilot.vim',
-        'nvim-lua/plenary.nvim',
+        { "github/copilot.vim" },
+        { "nvim-lua/plenary.nvim", branch = "master" },
       },
+      build = "make tiktoken",
+      opts = {},
     },
 
     { 'windwp/nvim-autopairs', opts = {} },
