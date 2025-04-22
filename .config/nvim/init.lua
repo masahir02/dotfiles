@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 
 vim.keymap.set('n', '<C-h>', '<C-W>h')
 vim.keymap.set('n', '<C-j>', '<C-W>j')
@@ -75,4 +76,139 @@ vim.opt.tabstop = 2
 vim.opt.wildmenu = true
 vim.opt.wrap = false
 
-require('plugins')
+
+
+
+
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out, 'WarningMsg' },
+      { '\nPress any key to exit...' },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup({
+  spec = {
+    {
+      'ibhagwan/fzf-lua',
+      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      opts = {
+        winopts = {
+          fullscreen = true,
+          preview = {
+            layout = 'holizontal',
+            vertical = 'down:70%',
+          },
+        },
+        keymap = {
+          builtin = {
+            ['<C-d>'] = 'preview-page-down',
+            ['<C-u>'] = 'preview-page-up',
+          },
+        },
+      },
+      keys = {
+        { '<Leader><space>', '<cmd>FzfLua<cr>' },
+        { '<Tab>', '<cmd>FzfLua buffers<cr>' },
+        { '<Leader>f', '<cmd>FzfLua files<cr>' },
+        { '<Leader>g', '<cmd>FzfLua live_grep<cr>' },
+        { '<Leader>r', '<cmd>FzfLua oldfiles<cr>' },
+      },
+    },
+
+    {
+      'hrsh7th/nvim-cmp',
+      dependencies = {
+        'hrsh7th/cmp-nvim-lsp',
+        'L3MON4D3/LuaSnip',
+      }
+    },
+
+    {
+      'neovim/nvim-lspconfig',
+      dependencies = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+      },
+      config = function()
+        require('mason').setup()
+        require('mason-lspconfig').setup()
+
+        local lspconfig = require('lspconfig')
+
+        local on_attach = function(client, bufnr)
+          local bufmap = function(mode, lhs, rhs)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
+          end
+          bufmap('n', 'gd', vim.lsp.buf.definition)
+          bufmap('n', 'K', vim.lsp.buf.hover)
+          bufmap('n', '<leader>rn', vim.lsp.buf.rename)
+          bufmap('n', 'gr', vim.lsp.buf.references)
+          bufmap('n', '[d', vim.diagnostic.goto_prev)
+          bufmap('n', ']d', vim.diagnostic.goto_next)
+        end
+
+        require('mason-lspconfig').setup_handlers {
+          function(server_name)
+            require('lspconfig')[server_name].setup({
+              capabilities = capabilities,
+              on_attach = on_attach,
+            })
+          end,
+        }
+
+        local cmp = require('cmp')
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              require('luasnip').lsp_expand(args.body)
+            end,
+          },
+          mapping = cmp.mapping.preset.insert({
+            ['<Tab>'] = cmp.mapping.select_next_item(),
+            ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          }),
+          sources = {
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+          },
+        })
+      end,
+    },
+
+    {
+      'folke/todo-comments.nvim',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      opts = {},
+    },
+
+    {
+      'CopilotC-Nvim/CopilotChat.nvim',
+      dependencies = {
+        'github/copilot.vim',
+        'nvim-lua/plenary.nvim',
+      },
+    },
+
+    { 'windwp/nvim-autopairs', opts = {} },
+
+    {
+      'folke/tokyonight.nvim',
+      opts = {},
+      config = function()
+        vim.cmd[[colorscheme tokyonight]]
+      end,
+    },
+  },
+  checker = { enabled = true },
+})
