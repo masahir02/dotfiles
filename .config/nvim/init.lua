@@ -208,10 +208,20 @@ require('lazy').setup({
       },
       build = 'make tiktoken',
       opts = {
+        system_prompt = 'COPILOT_INSTRUCTIONS',
+
+        model = 'gpt-4o',
+        agent = 'copilot',
+
+        show_help = false,
+
+        question_header = '　🍙　',
+        answer_header = '　🤖　',
+        error_header = '　🔥　',
+
         prompts = {
           Explain = {
             prompt = '選択されたコードについて、段落形式の文章で説明を書いてください。',
-            mapping = '<Leader>l',
             system_prompt = 'COPILOT_EXPLAIN',
           },
           Review = {
@@ -236,6 +246,9 @@ require('lazy').setup({
           },
         },
       },
+      keys = {
+        { '<Leader>l', '<cmd>CopilotChatToggle<cr>' },
+      }
     },
 
     { 'windwp/nvim-autopairs', opts = {} },
