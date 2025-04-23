@@ -298,6 +298,21 @@ require('lazy').setup({
       'windwp/nvim-autopairs',
       opts = {},
     },
+
+    {
+      "f-person/git-blame.nvim",
+      event = "VeryLazy",
+      opts = {
+        message_template = " <date> by <author>",
+        date_format = "%Y-%m-%d %H:%M:%S (%r)",
+        virtual_text_column = 1,
+      },
+      keys = {
+        { "<Leader>b", "<cmd>GitBlameToggle<cr>" },
+        { "<Leader>o", "<cmd>GitBlameOpenCommitURL<cr>" },
+      },
+    }
+
   },
   checker = { enabled = true },
 })
