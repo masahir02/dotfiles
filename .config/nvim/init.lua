@@ -80,7 +80,7 @@ vim.diagnostic.config({
   virtual_text = {
     spacing = 4,
     severity = vim.diagnostic.severity.ERROR,
-    source = "if_many",
+    source = 'if_many',
     format = function(diagnostic)
       return diagnostic.message
     end,
@@ -148,16 +148,16 @@ require('lazy').setup({
         'zbirenbaum/copilot.lua',
       },
       config = function()
-        require("copilot").setup({
+        require('copilot').setup({
           suggestion = { enabled = false },
           panel = { enabled = false },
         })
-        require("copilot_cmp").setup()
+        require('copilot_cmp').setup()
 
         local cmp = require('cmp')
         local luasnip = require('luasnip')
 
-        require("luasnip.loaders.from_vscode").lazy_load()
+        require('luasnip.loaders.from_vscode').lazy_load()
 
         cmp.setup({
           snippet = {
@@ -174,7 +174,7 @@ require('lazy').setup({
               else
                 fallback()
               end
-            end, { "i", "s" }),
+            end, { 'i', 's' }),
             ['<S-Tab>'] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()
@@ -183,7 +183,7 @@ require('lazy').setup({
               else
                 fallback()
               end
-            end, { "i", "s" }),
+            end, { 'i', 's' }),
             ['<CR>'] = cmp.mapping.confirm({ select = true }),
             ['<C-Space>'] = cmp.mapping.complete(),
           }),
