@@ -203,8 +203,8 @@ require('lazy').setup({
     {
       'CopilotC-Nvim/CopilotChat.nvim',
       dependencies = {
-        { 'github/copilot.vim' },
-        { 'nvim-lua/plenary.nvim', branch = 'master' },
+        'github/copilot.vim',
+        'nvim-lua/plenary.nvim',
       },
       build = 'make tiktoken',
       opts = {
@@ -236,7 +236,7 @@ require('lazy').setup({
             prompt = '選択されたコードにドキュメントコメントを追加してください。',
           },
           Tests = {
-            prompt = '私のコードのテストを生成してください。',
+            prompt = 'このコードのテストを生成してください。',
           },
           Commit = {
             prompt = '変更内容に対して、Commitizen規約に従ったコミットメッセージを書いてください。タイトルは50文字以内に収め、本文は72文字で改行してください。gitcommitコードブロックの形式で書いてください。',
