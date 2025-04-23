@@ -311,7 +311,19 @@ require('lazy').setup({
         { "<Leader>b", "<cmd>GitBlameToggle<cr>" },
         { "<Leader>o", "<cmd>GitBlameOpenCommitURL<cr>" },
       },
-    }
+    },
+
+    {
+      'nvimdev/indentmini.nvim',
+      event = 'VeryLazy',
+      opts = {},
+    },
+
+    {
+      "kylechui/nvim-surround",
+      event = "VeryLazy",
+      opts = {},
+    },
 
   },
   checker = { enabled = true },
