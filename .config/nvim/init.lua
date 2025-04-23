@@ -233,12 +233,6 @@ require('lazy').setup({
     },
 
     {
-      'folke/todo-comments.nvim',
-      dependencies = { 'nvim-lua/plenary.nvim' },
-      opts = {},
-    },
-
-    {
       'CopilotC-Nvim/CopilotChat.nvim',
       dependencies = {
         'github/copilot.vim',
@@ -287,14 +281,22 @@ require('lazy').setup({
       }
     },
 
-    { 'windwp/nvim-autopairs', opts = {} },
+    {
+      'folke/todo-comments.nvim',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      opts = {},
+    },
 
     {
       'folke/tokyonight.nvim',
-      opts = {},
       config = function()
         vim.cmd[[colorscheme tokyonight]]
       end,
+    },
+
+    {
+      'windwp/nvim-autopairs',
+      opts = {},
     },
   },
   checker = { enabled = true },
