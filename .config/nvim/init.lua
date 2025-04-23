@@ -278,6 +278,7 @@ require('lazy').setup({
       },
       keys = {
         { '<Leader>l', '<cmd>CopilotChatToggle<cr>' },
+        { '<Leader>c', '<cmd>CopilotChatReset<cr>' },
       }
     },
 
