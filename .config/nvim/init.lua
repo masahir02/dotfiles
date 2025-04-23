@@ -208,8 +208,6 @@ require('lazy').setup({
       },
       build = 'make tiktoken',
       opts = {
-        system_prompt = 'COPILOT_INSTRUCTIONS',
-
         model = 'gpt-4o',
         agent = 'copilot',
 
