@@ -108,7 +108,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
-    { 'nvim-tree/nvim-web-devicons', opts = {} },
 
     {
       'ibhagwan/fzf-lua',
@@ -137,6 +136,39 @@ require('lazy').setup({
     },
 
     {
+      'neovim/nvim-lspconfig',
+      dependencies = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+      },
+      config = function()
+        require('mason').setup()
+        require('mason-lspconfig').setup()
+
+        local on_attach = function(_, bufnr)
+          local bufmap = function(mode, lhs, rhs)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
+          end
+          bufmap('n', 'gd', vim.lsp.buf.definition)
+          bufmap('n', 'gi', vim.lsp.buf.implementation)
+          bufmap('n', 'gr', vim.lsp.buf.references)
+          bufmap('n', 'K', vim.lsp.buf.hover)
+          bufmap('n', '<leader>rn', vim.lsp.buf.rename)
+          bufmap('n', '[d', vim.diagnostic.goto_prev)
+          bufmap('n', ']d', vim.diagnostic.goto_next)
+        end
+
+        require('mason-lspconfig').setup_handlers {
+          function(server_name)
+            require('lspconfig')[server_name].setup({
+              on_attach = on_attach,
+            })
+          end,
+        }
+      end,
+    },
+
+    {
       "L3MON4D3/LuaSnip",
       dependencies = { "rafamadriz/friendly-snippets" },
       config = function()
@@ -150,17 +182,8 @@ require('lazy').setup({
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip',
-        'zbirenbaum/copilot-cmp',
-        'zbirenbaum/copilot.lua',
       },
       config = function()
-        require('copilot').setup({
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        })
-        require('copilot_cmp').setup()
-
         local cmp = require('cmp')
         local luasnip = require('luasnip')
 
@@ -201,46 +224,27 @@ require('lazy').setup({
             { name = 'path' },
           }),
         })
-      end
+      end,
     },
 
     {
-      'neovim/nvim-lspconfig',
-      dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-      },
+      'zbirenbaum/copilot.lua',
       config = function()
-        require('mason').setup()
-        require('mason-lspconfig').setup()
-
-        local on_attach = function(_, bufnr)
-          local bufmap = function(mode, lhs, rhs)
-            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
-          end
-          bufmap('n', 'gd', vim.lsp.buf.definition)
-          bufmap('n', 'gi', vim.lsp.buf.implementation)
-          bufmap('n', 'gr', vim.lsp.buf.references)
-          bufmap('n', 'K', vim.lsp.buf.hover)
-          bufmap('n', '<leader>rn', vim.lsp.buf.rename)
-          bufmap('n', '[d', vim.diagnostic.goto_prev)
-          bufmap('n', ']d', vim.diagnostic.goto_next)
-        end
-
-        require('mason-lspconfig').setup_handlers {
-          function(server_name)
-            require('lspconfig')[server_name].setup({
-              on_attach = on_attach,
-            })
-          end,
-        }
+        require('copilot').setup({
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+        })
       end,
+    },
+
+    {
+      'zbirenbaum/copilot-cmp',
+      opts = {},
     },
 
     {
       'CopilotC-Nvim/CopilotChat.nvim',
       dependencies = {
-        'github/copilot.vim',
         'nvim-lua/plenary.nvim',
       },
       build = 'make tiktoken',
@@ -288,6 +292,11 @@ require('lazy').setup({
     },
 
     {
+      'nvim-tree/nvim-web-devicons',
+      opts = {},
+    },
+
+    {
       'folke/todo-comments.nvim',
       dependencies = { 'nvim-lua/plenary.nvim' },
       opts = {},
@@ -315,7 +324,6 @@ require('lazy').setup({
       },
       keys = {
         { "<Leader>b", "<cmd>GitBlameToggle<cr>" },
-        { "<Leader>o", "<cmd>GitBlameOpenCommitURL<cr>" },
       },
     },
 
