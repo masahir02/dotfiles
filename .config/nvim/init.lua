@@ -8,8 +8,7 @@ vim.keymap.set('n', '<C-l>', '<C-W>l')
 vim.keymap.set('n', '<ESC><ESC>', ':on<CR>')
 vim.keymap.set('n', '<Leader>/', ':set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>')
 vim.keymap.set('n', '<Leader>d', ':bd<CR>')
-vim.keymap.set('n', '<Leader>n', ':enew<CR>')
-vim.keymap.set('n', '<Leader>q', ':q<CR>')
+vim.keymap.set('n', '<Leader>n', ':vnew<CR>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
 vim.keymap.set('v', 'p', '"_dP')
@@ -43,37 +42,22 @@ vim.api.nvim_create_autocmd({'FileType'}, {
   end
 })
 
-vim.opt.autoindent = true
-vim.opt.autoread = true
-vim.opt.backspace = 'indent,eol,start'
 vim.opt.clipboard = 'unnamed'
-vim.opt.cmdheight = 1
 vim.opt.confirm = true
-vim.opt.encoding = 'utf8'
 vim.opt.expandtab = true
-vim.opt.fileencoding = 'utf8'
-vim.opt.fileencodings = 'utf8'
-vim.opt.fileformat = 'unix'
-vim.opt.hidden = true
-vim.opt.history = 1000
-vim.opt.hlsearch = true
 vim.opt.ignorecase = true
-vim.opt.incsearch = true
 vim.opt.laststatus = 2
 vim.opt.list = true
 vim.opt.listchars = { tab = '| ', trail = '_', eol = '↵' }
 vim.opt.number = true
-vim.opt.ruler = true
 vim.opt.scrolloff = 5
 vim.opt.shiftwidth = 2
-vim.opt.showcmd = true
 vim.opt.smartcase = true
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 2
-vim.opt.wildmenu = true
 vim.opt.wrap = false
 
 vim.diagnostic.config({
