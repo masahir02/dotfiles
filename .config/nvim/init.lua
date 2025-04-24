@@ -12,7 +12,7 @@ vim.keymap.set('n', '<Leader>n', ':enew<CR>')
 vim.keymap.set('n', '<Leader>q', ':q<CR>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
-vim.keymap.set('x', 'p', '"_xP')
+vim.keymap.set('v', 'p', '"_dP')
 
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
   pattern = '*',
@@ -323,6 +323,11 @@ require('lazy').setup({
     {
       "kylechui/nvim-surround",
       event = "VeryLazy",
+      opts = {},
+    },
+
+    {
+      'yamatsum/nvim-cursorline',
       opts = {},
     },
 
