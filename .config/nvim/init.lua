@@ -46,7 +46,6 @@ vim.opt.clipboard = 'unnamed'
 vim.opt.confirm = true
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
-vim.opt.laststatus = 2
 vim.opt.list = true
 vim.opt.listchars = { tab = '| ', trail = '_', eol = '↵' }
 vim.opt.number = true
