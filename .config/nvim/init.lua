@@ -47,7 +47,7 @@ vim.opt.confirm = true
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.list = true
-vim.opt.listchars = { tab = '| ', trail = '_', eol = '↵' }
+vim.opt.listchars = { tab = '| ', trail = '▫︎', eol = '↵' }
 vim.opt.number = true
 vim.opt.scrolloff = 5
 vim.opt.shiftwidth = 2
