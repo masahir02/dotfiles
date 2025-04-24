@@ -92,7 +92,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
-
     {
       'ibhagwan/fzf-lua',
       opts = {
@@ -327,7 +326,6 @@ require('lazy').setup({
       'yamatsum/nvim-cursorline',
       opts = {},
     },
-
   },
   checker = { enabled = true },
 })
