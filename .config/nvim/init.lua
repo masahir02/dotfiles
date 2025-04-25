@@ -151,8 +151,8 @@ require('lazy').setup({
     },
 
     {
-      "L3MON4D3/LuaSnip",
-      dependencies = { "rafamadriz/friendly-snippets" },
+      'L3MON4D3/LuaSnip',
+      dependencies = { 'rafamadriz/friendly-snippets' },
       config = function()
         require('luasnip.loaders.from_vscode').lazy_load()
       end,
@@ -231,15 +231,7 @@ require('lazy').setup({
       },
       build = 'make tiktoken',
       opts = {
-        model = 'gpt-4o',
-        agent = 'copilot',
-
         show_help = false,
-
-        question_header = '　🍙　',
-        answer_header = '　🤖　',
-        error_header = '　🔥　',
-
         prompts = {
           Explain = {
             prompt = '選択されたコードについて、段落形式の文章で説明を書いてください。',
@@ -297,15 +289,15 @@ require('lazy').setup({
     },
 
     {
-      "f-person/git-blame.nvim",
-      event = "VeryLazy",
+      'f-person/git-blame.nvim',
+      event = 'VeryLazy',
       opts = {
-        message_template = " <date> by <author>",
-        date_format = "%Y-%m-%d %H:%M:%S (%r)",
+        message_template = ' <date> by <author>',
+        date_format = '%Y-%m-%d %H:%M:%S (%r)',
         virtual_text_column = 1,
       },
       keys = {
-        { "<Leader>b", "<cmd>GitBlameToggle<cr>" },
+        { '<Leader>b', '<cmd>GitBlameToggle<cr>' },
       },
     },
 
@@ -316,8 +308,8 @@ require('lazy').setup({
     },
 
     {
-      "kylechui/nvim-surround",
-      event = "VeryLazy",
+      'kylechui/nvim-surround',
+      event = 'VeryLazy',
       opts = {},
     },
 
