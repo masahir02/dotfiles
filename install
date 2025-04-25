@@ -14,7 +14,7 @@ fi
 
 dotfiles_dir=$HOME/src/github.com/masahir02/dotfiles
 if [ ! -d $dotfiles_dir ]; then
-  git clone -b darwin/arm64 git@github.com:masahir02/dotfiles.git $dotfiles_dir
+  git clone git@github.com:masahir02/dotfiles.git $dotfiles_dir
 fi
 
 dotfiles=(
