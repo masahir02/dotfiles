@@ -11,6 +11,10 @@ vim.keymap.set('n', '<Leader>d', ':bd<CR>')
 vim.keymap.set('n', '<Leader>n', ':vnew<CR>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
+vim.keymap.set('n', 'gK', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
 vim.keymap.set('v', 'p', '"_dP')
 
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
@@ -151,14 +155,6 @@ require('lazy').setup({
     },
 
     {
-      'L3MON4D3/LuaSnip',
-      dependencies = { 'rafamadriz/friendly-snippets' },
-      config = function()
-        require('luasnip.loaders.from_vscode').lazy_load()
-      end,
-    },
-
-    {
       'hrsh7th/nvim-cmp',
       dependencies = {
         'hrsh7th/cmp-nvim-lsp',
@@ -167,20 +163,12 @@ require('lazy').setup({
       },
       config = function()
         local cmp = require('cmp')
-        local luasnip = require('luasnip')
 
         cmp.setup({
-          snippet = {
-            expand = function(args)
-              luasnip.lsp_expand(args.body)
-            end,
-          },
           mapping = cmp.mapping.preset.insert({
             ['<Tab>'] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
               else
                 fallback()
               end
@@ -188,8 +176,6 @@ require('lazy').setup({
             ['<S-Tab>'] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
               else
                 fallback()
               end
@@ -200,7 +186,6 @@ require('lazy').setup({
           sources = cmp.config.sources({
             { name = 'copilot' },
             { name = 'nvim_lsp' },
-            { name = 'luasnip' },
           }, {
             { name = 'buffer' },
             { name = 'path' },
@@ -318,5 +303,6 @@ require('lazy').setup({
       opts = {},
     },
   },
+  change_detection = { enabled = true },
   checker = { enabled = true },
 })
