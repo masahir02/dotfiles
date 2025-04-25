@@ -217,36 +217,18 @@ require('lazy').setup({
       build = 'make tiktoken',
       opts = {
         show_help = false,
+        sticky = {
+          '#buffer',
+          '/Jp',
+        },
         prompts = {
-          Explain = {
-            prompt = '選択されたコードについて、段落形式の文章で説明を書いてください。',
-            system_prompt = 'COPILOT_EXPLAIN',
-          },
-          Review = {
-            prompt = '選択されたコードをレビューしてください。',
-            system_prompt = 'COPILOT_REVIEW',
-          },
-          Fix = {
-            prompt = 'このコードには問題があります。問題点を特定し、修正したコードに書き換えてください。何が間違っていたのか、またその修正がどのように問題を解決するのかを説明してください。',
-          },
-          Optimize = {
-            prompt = '選択されたコードのパフォーマンスと可読性を向上させるために最適化してください。最適化の方針と、その変更による利点を説明してください。',
-          },
-          Docs = {
-            prompt = '選択されたコードにドキュメントコメントを追加してください。',
-          },
-          Tests = {
-            prompt = 'このコードのテストを生成してください。',
-          },
-          Commit = {
-            prompt = '変更内容に対して、Commitizen規約に従ったコミットメッセージを書いてください。タイトルは50文字以内に収め、本文は72文字で改行してください。gitcommitコードブロックの形式で書いてください。',
-            context = 'git:staged',
+          Jp = {
+            prompt = '日本語でお願いします',
           },
         },
       },
       keys = {
         { '<Leader>l', '<cmd>CopilotChatToggle<cr>' },
-        { '<Leader>c', '<cmd>CopilotChatReset<cr>' },
       }
     },
 
