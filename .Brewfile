@@ -17,7 +17,6 @@ brew "gnu-sed"
 brew "unbound"
 brew "gnupg"
 brew "gojq"
-brew "k6"
 brew "libffi"
 brew "libpq", link: true
 brew "zstd"
