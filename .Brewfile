@@ -19,9 +19,9 @@ brew "gnupg"
 brew "gojq"
 brew "k6"
 brew "libffi"
-brew "libpq"
+brew "libpq", link: true
 brew "zstd"
-brew "mysql-client@8.0"
+brew "mysql-client@8.0", link: true
 brew "neovim"
 brew "nkf"
 brew "protobuf"

@@ -158,8 +158,6 @@ mkdir -p $HOME/.asdf/completions && asdf completion zsh > $HOME/.asdf/completion
 path=(
   $HOME/bin
   $HOME/.asdf/shims
-  $HOMEBREW_PREFIX/opt/mysql-client@8.0/bin
-  $HOMEBREW_PREFIX/opt/libpq/bin
   $path
 )
 # source files
