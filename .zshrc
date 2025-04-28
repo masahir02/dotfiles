@@ -72,7 +72,7 @@ PROMPT='%(?,%F{green},%F{red})%#%f '
 RPROMPT='%(1v.%F{yellow}%1v%f.) %F{cyan}%~%f %F{white}${elapsed_time}%f'
 
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=65536
+HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
 setopt append_history
