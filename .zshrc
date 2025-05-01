@@ -158,6 +158,7 @@ mkdir -p $HOME/.asdf/completions && asdf completion zsh > $HOME/.asdf/completion
 path=(
   $HOME/bin
   $HOME/.asdf/shims
+  $(asdf where python)/bin
   $path
 )
 # source files
