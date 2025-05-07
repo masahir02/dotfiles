@@ -46,6 +46,15 @@ vim.api.nvim_create_autocmd({'FileType'}, {
   end
 })
 
+vim.api.nvim_create_autocmd({'FileType'}, {
+  pattern = 'sql',
+  callback = function()
+    vim.opt.shiftwidth = 4
+    vim.opt.softtabstop = 4
+    vim.opt.tabstop = 4
+  end
+})
+
 vim.opt.clipboard = 'unnamed'
 vim.opt.confirm = true
 vim.opt.expandtab = true
@@ -124,8 +133,8 @@ require('lazy').setup({
     {
       'neovim/nvim-lspconfig',
       dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
+        'mason-org/mason.nvim',
+        'mason-org/mason-lspconfig.nvim',
       },
       config = function()
         require('mason').setup()
@@ -245,7 +254,7 @@ require('lazy').setup({
     {
       'folke/tokyonight.nvim',
       config = function()
-        vim.cmd[[colorscheme tokyonight]]
+        vim.cmd[[colorscheme tokyonight-storm]]
       end,
     },
 
