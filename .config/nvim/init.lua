@@ -11,6 +11,7 @@ vim.keymap.set('n', '<Leader>d', ':bd<CR>')
 vim.keymap.set('n', '<Leader>n', ':vnew<CR>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
+
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
@@ -22,6 +23,7 @@ vim.keymap.set('n', 'gK', function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = 'Toggle diagnostic virtual_lines' })
+
 vim.keymap.set('v', 'p', '"_dP')
 
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
@@ -108,9 +110,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-
--- vim.lsp.enable('gopls')
-
 
 require('lazy').setup({
   spec = {
