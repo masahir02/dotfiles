@@ -11,6 +11,13 @@ vim.keymap.set('n', '<Leader>d', ':bd<CR>')
 vim.keymap.set('n', '<Leader>n', ':vnew<CR>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'gK', function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
@@ -102,6 +109,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim.lsp.enable('gopls')
+
+
 require('lazy').setup({
   spec = {
     {
@@ -132,35 +142,22 @@ require('lazy').setup({
 
     {
       'neovim/nvim-lspconfig',
-      dependencies = {
-        'mason-org/mason.nvim',
-        'mason-org/mason-lspconfig.nvim',
+    },
+
+    {
+      'mason-org/mason.nvim',
+      opts = {},
+    },
+
+    {
+      'mason-org/mason-lspconfig.nvim',
+      opts = {
+        ensure_installed = {
+          'gopls',
+          'pyright',
+          'ts_ls',
+        },
       },
-      config = function()
-        require('mason').setup()
-        require('mason-lspconfig').setup()
-
-        local on_attach = function(_, bufnr)
-          local bufmap = function(mode, lhs, rhs)
-            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
-          end
-          bufmap('n', 'gd', vim.lsp.buf.definition)
-          bufmap('n', 'gi', vim.lsp.buf.implementation)
-          bufmap('n', 'gr', vim.lsp.buf.references)
-          bufmap('n', 'K', vim.lsp.buf.hover)
-          bufmap('n', '<leader>rn', vim.lsp.buf.rename)
-          bufmap('n', '[d', vim.diagnostic.goto_prev)
-          bufmap('n', ']d', vim.diagnostic.goto_next)
-        end
-
-        require('mason-lspconfig').setup_handlers {
-          function(server_name)
-            require('lspconfig')[server_name].setup({
-              on_attach = on_attach,
-            })
-          end,
-        }
-      end,
     },
 
     {
