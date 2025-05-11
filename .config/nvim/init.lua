@@ -1,22 +1,19 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
-vim.keymap.set('n', '<C-h>', '<C-W>h')
-vim.keymap.set('n', '<C-j>', '<C-W>j')
-vim.keymap.set('n', '<C-k>', '<C-W>k')
-vim.keymap.set('n', '<C-l>', '<C-W>l')
-vim.keymap.set('n', '<ESC><ESC>', ':on<CR>')
-vim.keymap.set('n', '<Leader>/', ':set nu!<CR>:set list!<CR>:set wrap!<CR>:echo<CR>')
-vim.keymap.set('n', '<Leader>d', ':bd<CR>')
-vim.keymap.set('n', '<Leader>n', ':vnew<CR>')
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
+vim.keymap.set('n', '<esc><esc>', ':on<cr>')
+vim.keymap.set('n', '<leader>/', ':set nu!<cr>:set list!<cr>:set wrap!<cr>:echo<cr>')
+vim.keymap.set('n', '<leader>d', ':bd<cr>')
+vim.keymap.set('n', '<leader>n', ':vnew<cr>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
 
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references)
-vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+vim.keymap.set('v', 'p', '"_dP')
+
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'gK', function()
@@ -24,12 +21,21 @@ vim.keymap.set('n', 'gK', function()
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
-vim.keymap.set('v', 'p', '"_dP')
+-- lsp
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+
+-- executor
+vim.keymap.set('n', '<leader>er', ':ExecutorRunWithNewCommand<cr>', {})
+vim.keymap.set('n', '<leader>ev', ':ExecutorToggleDetail<cr>', {})
 
 
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd('VimEnter', {
   callback=function()
-    require"lazy".update({show = false})
+    require'lazy'.update({show = false})
   end
 })
 
@@ -54,7 +60,10 @@ vim.api.nvim_create_autocmd({'FileType'}, {
 })
 
 vim.api.nvim_create_autocmd({'FileType'}, {
-  pattern = { 'python', 'sql'},
+  pattern = {
+    'python',
+    'sql',
+  },
   callback = function()
     vim.opt.shiftwidth = 4
     vim.opt.softtabstop = 4
@@ -283,9 +292,22 @@ require('lazy').setup({
     },
 
     {
-      'yamatsum/nvim-cursorline',
+      'ya2s/nvim-cursorline',
       opts = {},
     },
+
+    {
+      'google/executor.nvim',
+      dependencies = {
+        'MunifTanjim/nui.nvim',
+      },
+      opts = {
+        split = {
+          position = 'bottom',
+        },
+      },
+    },
+
   },
   change_detection = { enabled = true },
   checker = { enabled = true },
