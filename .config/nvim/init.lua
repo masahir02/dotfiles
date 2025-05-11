@@ -132,17 +132,17 @@ require('lazy').setup({
         },
         keymap = {
           builtin = {
-            ['<C-d>'] = 'preview-page-down',
-            ['<C-u>'] = 'preview-page-up',
+            ['<c-d>'] = 'preview-page-down',
+            ['<c-u>'] = 'preview-page-up',
           },
         },
       },
       keys = {
-        { '<Leader><space>', '<cmd>FzfLua<cr>' },
-        { '<Tab>', '<cmd>FzfLua buffers<cr>' },
-        { '<Leader>f', '<cmd>FzfLua files<cr>' },
-        { '<Leader>g', '<cmd>FzfLua live_grep<cr>' },
-        { '<Leader>r', '<cmd>FzfLua oldfiles<cr>' },
+        { '<leader><space>', '<cmd>FzfLua<cr>' },
+        { '<tab>', '<cmd>FzfLua buffers<cr>' },
+        { '<leader>f', '<cmd>FzfLua files<cr>' },
+        { '<leader>g', '<cmd>FzfLua live_grep<cr>' },
+        { '<leader>r', '<cmd>FzfLua oldfiles<cr>' },
       },
     },
 
@@ -178,22 +178,22 @@ require('lazy').setup({
 
         cmp.setup({
           mapping = cmp.mapping.preset.insert({
-            ['<Tab>'] = cmp.mapping(function(fallback)
+            ['<tab>'] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
               else
                 fallback()
               end
             end, { 'i', 's' }),
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
+            ['<s-tab>'] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()
               else
                 fallback()
               end
             end, { 'i', 's' }),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<cr>'] = cmp.mapping.confirm({ select = true }),
+            ['<c-space>'] = cmp.mapping.complete(),
           }),
           sources = cmp.config.sources({
             { name = 'nvim_lsp' },
@@ -239,7 +239,7 @@ require('lazy').setup({
         },
       },
       keys = {
-        { '<Leader>l', '<cmd>CopilotChatToggle<cr>' },
+        { '<leader>l', '<cmd>CopilotChatToggle<cr>' },
       }
     },
 
@@ -275,7 +275,7 @@ require('lazy').setup({
         virtual_text_column = 1,
       },
       keys = {
-        { '<Leader>b', '<cmd>GitBlameToggle<cr>' },
+        { '<leader>b', '<cmd>GitBlameToggle<cr>' },
       },
     },
 
