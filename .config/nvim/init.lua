@@ -26,6 +26,13 @@ end, { desc = 'Toggle diagnostic virtual_lines' })
 
 vim.keymap.set('v', 'p', '"_dP')
 
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback=function()
+    require"lazy".update({show = false})
+  end
+})
+
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
   pattern = '*',
   command = 'if getline(1) =~ "^#!" | :silent !chmod +x %'
@@ -47,16 +54,7 @@ vim.api.nvim_create_autocmd({'FileType'}, {
 })
 
 vim.api.nvim_create_autocmd({'FileType'}, {
-  pattern = 'python',
-  callback = function()
-    vim.opt.shiftwidth = 4
-    vim.opt.softtabstop = 4
-    vim.opt.tabstop = 4
-  end
-})
-
-vim.api.nvim_create_autocmd({'FileType'}, {
-  pattern = 'sql',
+  pattern = { 'python', 'sql'},
   callback = function()
     vim.opt.shiftwidth = 4
     vim.opt.softtabstop = 4
