@@ -12,7 +12,11 @@ vim.keymap.set('n', '<leader>n', ':vnew<cr>')
 vim.keymap.set('n', 'q:', '')
 vim.keymap.set('n', 'q/', '')
 
-vim.keymap.set('v', 'p', '"_dP')
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -21,16 +25,7 @@ vim.keymap.set('n', 'gK', function()
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
--- lsp
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references)
-vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
-
--- executor
-vim.keymap.set('n', '<leader>er', ':ExecutorRunWithNewCommand<cr>', {})
-vim.keymap.set('n', '<leader>ev', ':ExecutorToggleDetail<cr>', {})
+vim.keymap.set('v', 'p', '"_dP')
 
 
 vim.api.nvim_create_autocmd('VimEnter', {
@@ -301,11 +296,15 @@ require('lazy').setup({
       dependencies = {
         'MunifTanjim/nui.nvim',
       },
-      opts = {
-        split = {
-          position = 'bottom',
-        },
-      },
+      config = function()
+        require('executor').setup({
+          split = {
+            position = 'bottom',
+          },
+        })
+        vim.keymap.set('n', '<leader>er', '<cmd>ExecutorRunWithNewCommand<cr>', {})
+        vim.keymap.set('n', '<leader>ev', '<cmd>ExecutorToggleDetail<cr>', {})
+      end
     },
 
   },
