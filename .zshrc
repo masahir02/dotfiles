@@ -19,7 +19,7 @@ alias mv='mv -i'
 alias rake='noglob rake'
 alias history='history -r -i 1 L'
 alias diff='diff -u'
-alias tree='tree --dirsfirst -N -C -I "__*|.git|node_modules"'
+alias tree='tree --dirsfirst --gitignore -a -N -C -I ".git/"'
 alias jq='gojq'
 
 alias -g L='| less -R'
