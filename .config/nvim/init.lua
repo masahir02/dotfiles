@@ -191,6 +191,7 @@ require('lazy').setup({
             ['<c-space>'] = cmp.mapping.complete(),
           }),
           sources = cmp.config.sources({
+            { name = 'copilot' },
             { name = 'nvim_lsp' },
           }, {
             { name = 'buffer' },
