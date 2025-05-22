@@ -137,7 +137,7 @@ require('lazy').setup({
         { '<tab>', '<cmd>FzfLua buffers<cr>' },
         { '<leader>f', '<cmd>FzfLua files<cr>' },
         { '<leader>g', '<cmd>FzfLua live_grep<cr>' },
-        { '<leader>r', '<cmd>FzfLua oldfiles<cr>' },
+        { '<leader>h', '<cmd>FzfLua oldfiles<cr>' },
       },
     },
 
@@ -303,8 +303,8 @@ require('lazy').setup({
             position = 'bottom',
           },
         })
-        vim.keymap.set('n', '<leader>er', '<cmd>ExecutorRunWithNewCommand<cr>', {})
-        vim.keymap.set('n', '<leader>ev', '<cmd>ExecutorToggleDetail<cr>', {})
+        vim.keymap.set('n', '<leader>r', '<cmd>ExecutorRun<cr>', {})
+        vim.keymap.set('n', '<leader>rr', '<cmd>ExecutorToggleDetail<cr>', {})
       end
     },
 
