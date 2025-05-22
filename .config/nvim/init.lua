@@ -307,6 +307,20 @@ require('lazy').setup({
       end
     },
 
+    {
+      'stevearc/conform.nvim',
+      opts = {
+        formatters_by_ft = {
+          go = { 'gopls', 'gofmt' },
+          ['*'] = { 'codespell' },
+        },
+        format_on_save = {
+          lsp_format = 'fallback',
+          timeout_ms = 500,
+        },
+      },
+    },
+
   },
   change_detection = { enabled = true },
   checker = { enabled = true },
