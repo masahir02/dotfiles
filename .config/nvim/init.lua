@@ -201,9 +201,9 @@ require("lazy").setup({
           sources = cmp.config.sources({
             { name = "copilot" },
             { name = "nvim_lsp" },
+            { name = "path" },
           }, {
             { name = "buffer" },
-            { name = "path" },
           }),
         })
       end,
