@@ -324,7 +324,17 @@ require('lazy').setup({
 
     {
       'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      dependencies = {
+        'nvim-tree/nvim-web-devicons',
+      },
+      opts = {},
+    },
+
+    {
+      'ruifm/gitlinker.nvim',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+      },
       opts = {},
     },
 
