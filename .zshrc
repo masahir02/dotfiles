@@ -177,7 +177,7 @@ fi
 export GOPATH=$HOME
 export GGO111MODULE=on
 
-# Zinit
+# zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -196,7 +196,6 @@ if which terraform > /dev/null 2>&1 ; then
 fi
 
 
-# start tmux
 function() {
   local session_name=$(hostname | cut -d. -f1)
   if which tmux > /dev/null 2>&1 && [[ -z "$TMUX" ]]; then
