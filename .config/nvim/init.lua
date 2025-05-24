@@ -322,6 +322,12 @@ require('lazy').setup({
       },
     },
 
+    {
+      'nvim-lualine/lualine.nvim',
+      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      opts = {},
+    },
+
   },
   change_detection = { enabled = true },
   checker = { enabled = true },
