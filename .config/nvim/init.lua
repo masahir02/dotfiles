@@ -327,7 +327,16 @@ require('lazy').setup({
       dependencies = {
         'nvim-tree/nvim-web-devicons',
       },
-      opts = {},
+      opts = {
+        sections = {
+          lualine_c = {
+            {
+              'filename',
+              path = 3,
+            },
+          },
+        },
+      },
     },
 
     {
@@ -336,6 +345,18 @@ require('lazy').setup({
         'nvim-lua/plenary.nvim',
       },
       opts = {},
+    },
+
+    {
+      'ruifm/gitlinker.nvim',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+      },
+      config = function()
+        vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+        vim.api.nvim_set_keymap('v', '<leader>o', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+      end,
+      mappings = nil,
     },
 
   },
