@@ -149,6 +149,9 @@ require("lazy").setup({
       opts = {
         ensure_installed = {
           "stylua",
+          "sqlfluff",
+          "prettier",
+          "codespell",
         },
       },
     },
@@ -161,6 +164,7 @@ require("lazy").setup({
           "pyright",
           "ts_ls",
           "bashls",
+          "gh_actions_ls",
         },
       },
     },
@@ -318,6 +322,7 @@ require("lazy").setup({
         formatters_by_ft = {
           go = { "gopls", "gofmt" },
           lua = { "stylua" },
+          sql = { "sqlfluff" },
           ["*"] = { "codespell" },
         },
         format_on_save = {
