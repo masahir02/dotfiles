@@ -151,7 +151,6 @@ require("lazy").setup({
           "stylua",
           "sqlfluff",
           "prettier",
-          "codespell",
         },
       },
     },
@@ -323,7 +322,6 @@ require("lazy").setup({
           go = { "gopls", "gofmt" },
           lua = { "stylua" },
           sql = { "sqlfluff" },
-          ["*"] = { "codespell" },
         },
         format_on_save = {
           lsp_format = "fallback",
