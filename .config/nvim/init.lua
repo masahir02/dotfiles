@@ -230,9 +230,10 @@ require("lazy").setup({
       },
       build = "make tiktoken",
       opts = {
+        model = "claude-3.5-sonnet",
         show_help = false,
         sticky = {
-          "#buffer",
+          "#buffers",
           "/Jp",
         },
         prompts = {
@@ -328,14 +329,6 @@ require("lazy").setup({
           timeout_ms = 500,
         },
       },
-    },
-
-    {
-      "nvim-lualine/lualine.nvim",
-      dependencies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      opts = {},
     },
 
     {
