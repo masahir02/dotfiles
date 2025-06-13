@@ -233,7 +233,7 @@ require("lazy").setup({
         model = "claude-3.5-sonnet",
         show_help = false,
         sticky = {
-          "#buffers",
+          "#files",
           "/Jp",
         },
         prompts = {
