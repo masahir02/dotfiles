@@ -336,14 +336,6 @@ require("lazy").setup({
       dependencies = {
         "nvim-lua/plenary.nvim",
       },
-      opts = {},
-    },
-
-    {
-      "ruifm/gitlinker.nvim",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-      },
       config = function()
         vim.api.nvim_set_keymap(
           "n",
