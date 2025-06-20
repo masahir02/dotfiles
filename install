@@ -38,5 +38,15 @@ dotconfigs=(
 )
 for dotconfig in ${dotconfigs[@]}; do ln -sfv $dotfiles_dir/$dotconfig $HOME/.config; done
 
+if [ ! -d $HOME/.claude ]; then
+  mkdir $HOME/.claude
+fi
+
+claudeconfigs=(
+  .claude/settings.json
+  .claude/CLAUDE.md
+)
+for claudeconfig in ${claudeconfigs[@]}; do ln -sfv $dotfiles_dir/$claudeconfig $HOME/.claude; done
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --global

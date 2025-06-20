@@ -6,9 +6,7 @@ vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<esc><esc>", ":on<cr>")
-vim.keymap.set("n", "<leader>/", ":set nu!<cr>:set list!<cr>:set wrap!<cr>:echo<cr>")
 vim.keymap.set("n", "<leader>d", ":bd<cr>")
-vim.keymap.set("n", "<leader>n", ":vnew<cr>")
 vim.keymap.set("n", "q:", "")
 vim.keymap.set("n", "q/", "")
 
@@ -18,8 +16,6 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "gK", function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
@@ -301,22 +297,6 @@ require("lazy").setup({
     },
 
     {
-      "google/executor.nvim",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-      },
-      config = function()
-        require("executor").setup({
-          split = {
-            position = "bottom",
-          },
-        })
-        vim.keymap.set("n", "<leader>r", "<cmd>ExecutorRun<cr>", {})
-        vim.keymap.set("n", "<leader>rr", "<cmd>ExecutorToggleDetail<cr>", {})
-      end,
-    },
-
-    {
       "stevearc/conform.nvim",
       opts = {
         formatters_by_ft = {
@@ -332,25 +312,19 @@ require("lazy").setup({
     },
 
     {
-      "ruifm/gitlinker.nvim",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
+      "linrongbin16/gitlinker.nvim",
+      cmd = "GitLink",
+      opts = {},
+      keys = {
+        { "<leader>y", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank and Open" },
+        { "<leader>o", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
       },
-      config = function()
-        vim.api.nvim_set_keymap(
-          "n",
-          "<leader>o",
-          '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
-          { silent = true }
-        )
-        vim.api.nvim_set_keymap(
-          "v",
-          "<leader>o",
-          '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
-          {}
-        )
-      end,
-      mappings = nil,
+    },
+
+    {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      config = true,
     },
   },
   change_detection = { enabled = true },
