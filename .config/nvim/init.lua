@@ -14,7 +14,7 @@ vim.keymap.set("n", "q:", "")
 vim.keymap.set("n", "gK", function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
-end, { desc = "Toggle diagnostic virtual_lines" })
+end)
 
 vim.keymap.set("v", "p", '"_dP')
 
@@ -277,12 +277,7 @@ require("lazy").setup({
       "f-person/git-blame.nvim",
       event = "VeryLazy",
       opts = {
-        message_template = " <date> by <author>",
-        date_format = "%Y-%m-%d %H:%M:%S (%r)",
-        virtual_text_column = 1,
-      },
-      keys = {
-        { "<leader>b", "<cmd>GitBlameToggle<cr>" },
+        date_format = "%r",
       },
     },
 
