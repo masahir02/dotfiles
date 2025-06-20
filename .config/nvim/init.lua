@@ -122,8 +122,6 @@ require("lazy").setup({
             border = false,
             sorting_strategy = "ascending",
             scroll_strategy = "cycle",
-
-            vimgrep_arguments = vimgrep_arguments,
           },
           pickers = {
             find_files = {
