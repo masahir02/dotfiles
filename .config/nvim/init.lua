@@ -11,12 +11,6 @@ vim.keymap.set("n", "<leader>q", ":q<cr>")
 vim.keymap.set("n", "q/", "")
 vim.keymap.set("n", "q:", "")
 
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-vim.keymap.set("n", "gr", vim.lsp.buf.references)
-vim.keymap.set("n", "K", vim.lsp.buf.hover)
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-
 vim.keymap.set("n", "gK", function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
@@ -112,29 +106,43 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     {
-      "ibhagwan/fzf-lua",
-      opts = {
-        winopts = {
-          fullscreen = true,
-          preview = {
-            layout = "vertical",
-            vertical = "down:70%",
+      "nvim-telescope/telescope.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("telescope").setup({
+          defaults = {
+            layout_strategy = "vertical",
+            layout_config = {
+              vertical = {
+                height = 0.999,
+                width = 0.999,
+                preview_height = 0.7,
+              },
+            },
+            border = false,
+            sorting_strategy = "ascending",
+            scroll_strategy = "cycle",
+
+            vimgrep_arguments = vimgrep_arguments,
           },
-        },
-        keymap = {
-          builtin = {
-            ["<c-d>"] = "preview-page-down",
-            ["<c-u>"] = "preview-page-up",
+          pickers = {
+            find_files = {
+              find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+            },
           },
-        },
-      },
-      keys = {
-        { "<leader><space>", "<cmd>FzfLua<cr>" },
-        { "<tab>", "<cmd>FzfLua buffers<cr>" },
-        { "<leader>f", "<cmd>FzfLua files<cr>" },
-        { "<leader>g", "<cmd>FzfLua live_grep<cr>" },
-        { "<leader>h", "<cmd>FzfLua oldfiles<cr>" },
-      },
+        })
+        local builtin = require("telescope.builtin")
+        vim.keymap.set("n", "<leader>t", builtin.builtin)
+        vim.keymap.set("n", "<tab>", builtin.buffers)
+        vim.keymap.set("n", "<leader>f", builtin.find_files)
+        vim.keymap.set("n", "<leader>g", builtin.live_grep)
+        vim.keymap.set("n", "<leader>h", builtin.oldfiles)
+
+        vim.keymap.set("n", "gd", builtin.lsp_definitions)
+        vim.keymap.set("n", "gi", builtin.lsp_implementations)
+        vim.keymap.set("n", "gr", builtin.lsp_references)
+        vim.keymap.set("n", "D", builtin.diagnostics)
+      end,
     },
 
     {
@@ -326,7 +334,7 @@ require("lazy").setup({
       "akinsho/toggleterm.nvim",
       opts = {
         size = vim.o.columns * 0.5,
-        open_mapping = [[<leader>t]],
+        open_mapping = [[<leader><space>]],
         shade_terminals = false,
         direction = "vertical",
       },
