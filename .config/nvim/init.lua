@@ -7,8 +7,9 @@ vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<esc><esc>", ":on<cr>")
 vim.keymap.set("n", "<leader>d", ":bd<cr>")
-vim.keymap.set("n", "q:", "")
+vim.keymap.set("n", "<leader>q", ":q<cr>")
 vim.keymap.set("n", "q/", "")
+vim.keymap.set("n", "q:", "")
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
@@ -323,8 +324,12 @@ require("lazy").setup({
 
     {
       "akinsho/toggleterm.nvim",
-      version = "*",
-      config = true,
+      opts = {
+        size = vim.o.columns * 0.5,
+        open_mapping = [[<c-\>]],
+        shade_terminals = false,
+        direction = "vertical",
+      },
     },
   },
   change_detection = { enabled = true },
