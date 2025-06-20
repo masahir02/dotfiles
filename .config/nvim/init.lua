@@ -326,7 +326,7 @@ require("lazy").setup({
       "akinsho/toggleterm.nvim",
       opts = {
         size = vim.o.columns * 0.5,
-        open_mapping = [[<c-\>]],
+        open_mapping = [[<leader>t]],
         shade_terminals = false,
         direction = "vertical",
       },
