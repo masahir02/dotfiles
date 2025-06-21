@@ -7,6 +7,7 @@ vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<esc><esc>", ":on<cr>")
 vim.keymap.set("n", "<leader>d", ":bd<cr>")
+vim.keymap.set("n", "<leader>n", ":enew<cr>")
 vim.keymap.set("n", "<leader>q", ":q<cr>")
 vim.keymap.set("n", "q/", "")
 vim.keymap.set("n", "q:", "")
@@ -130,16 +131,15 @@ require("lazy").setup({
           },
         })
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<leader>t", builtin.builtin)
-        vim.keymap.set("n", "<tab>", builtin.buffers)
+        vim.keymap.set("n", "<leader>/", builtin.diagnostics)
         vim.keymap.set("n", "<leader>f", builtin.find_files)
         vim.keymap.set("n", "<leader>g", builtin.live_grep)
         vim.keymap.set("n", "<leader>h", builtin.oldfiles)
-
+        vim.keymap.set("n", "<leader>t", builtin.builtin)
+        vim.keymap.set("n", "<tab>", builtin.buffers)
         vim.keymap.set("n", "gd", builtin.lsp_definitions)
         vim.keymap.set("n", "gi", builtin.lsp_implementations)
         vim.keymap.set("n", "gr", builtin.lsp_references)
-        vim.keymap.set("n", "D", builtin.diagnostics)
       end,
     },
 
@@ -330,6 +330,23 @@ require("lazy").setup({
         open_mapping = [[<leader><space>]],
         shade_terminals = false,
         direction = "vertical",
+      },
+    },
+
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {
+        sections = {
+          lualine_b = {},
+          lualine_c = {
+            {
+              "filename",
+              path = 1,
+            },
+          },
+          lualine_x = {},
+        },
       },
     },
   },
