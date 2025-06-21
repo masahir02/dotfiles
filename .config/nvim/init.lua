@@ -117,7 +117,7 @@ require("lazy").setup({
             mappings = {
               i = {
                 ["<esc>"] = actions.close,
-                ["<C-u>"] = false,
+                ["<c-u>"] = false,
               },
             },
             layout_strategy = "vertical",
