@@ -110,8 +110,16 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
       config = function()
+        local actions = require("telescope.actions")
+        local builtin = require("telescope.builtin")
         require("telescope").setup({
           defaults = {
+            mappings = {
+              i = {
+                ["<esc>"] = actions.close,
+                ["<C-u>"] = false,
+              },
+            },
             layout_strategy = "vertical",
             layout_config = {
               vertical = {
@@ -130,7 +138,6 @@ require("lazy").setup({
             },
           },
         })
-        local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>/", builtin.diagnostics)
         vim.keymap.set("n", "<leader>f", builtin.find_files)
         vim.keymap.set("n", "<leader>g", builtin.live_grep)
