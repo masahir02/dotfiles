@@ -237,6 +237,7 @@ require("lazy").setup({
         show_help = false,
         sticky = {
           "#files",
+          "#buffers",
           "/Jp",
         },
         prompts = {
@@ -278,6 +279,7 @@ require("lazy").setup({
       event = "VeryLazy",
       opts = {
         date_format = "%r",
+        virtual_text_column = 1,
       },
     },
 
@@ -337,15 +339,22 @@ require("lazy").setup({
       "nvim-lualine/lualine.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
       opts = {
+        options = {
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+        },
         sections = {
-          lualine_b = {},
-          lualine_c = {
+          lualine_a = {},
+          lualine_b = {
             {
               "filename",
               path = 1,
             },
           },
-          lualine_x = {},
+          lualine_c = {},
+          lualine_x = { "location" },
+          lualine_y = {},
+          lualine_z = {},
         },
       },
     },
