@@ -338,6 +338,7 @@ require("lazy").setup({
         size = vim.o.columns * 0.5,
         open_mapping = [[<leader><space>]],
         shade_terminals = false,
+        insert_mappings = false,
         direction = "vertical",
       },
     },
