@@ -114,6 +114,7 @@ require("lazy").setup({
         local builtin = require("telescope.builtin")
         require("telescope").setup({
           defaults = {
+            preview = false,
             mappings = {
               i = {
                 ["<esc>"] = actions.close,
