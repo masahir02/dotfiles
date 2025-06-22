@@ -136,6 +136,14 @@ require("lazy").setup({
             find_files = {
               find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
             },
+            buffers = {
+              sort_lastused = true,
+              mappings = {
+                i = {
+                  ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+                },
+              },
+            },
           },
         })
         vim.keymap.set("n", "<leader>/", builtin.diagnostics)
