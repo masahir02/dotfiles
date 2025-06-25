@@ -6,7 +6,9 @@
       "Bash(go:*)",
       "Bash(grep:*)",
       "Bash(ls:*)",
-      "Bash(make:*)"
+      "Bash(make:*)",
+      "Bash(mv:*)",
+      "Bash(pnpm:*)"
     ],
     "deny": []
   }
