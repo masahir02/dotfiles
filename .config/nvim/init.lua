@@ -147,11 +147,10 @@ require("lazy").setup({
             },
           },
         })
-        vim.keymap.set("n", "<c-/>", builtin.diagnostics)
+        vim.keymap.set("n", "<leader><leader>", builtin.builtin)
         vim.keymap.set("n", "<leader>f", builtin.find_files)
         vim.keymap.set("n", "<leader>g", builtin.live_grep)
         vim.keymap.set("n", "<leader>h", builtin.oldfiles)
-        vim.keymap.set("n", "<leader>t", builtin.builtin)
         vim.keymap.set("n", "<tab>", builtin.buffers)
         vim.keymap.set("n", "gd", builtin.lsp_definitions)
         vim.keymap.set("n", "gi", builtin.lsp_implementations)
@@ -291,11 +290,15 @@ require("lazy").setup({
     },
 
     {
-      "f-person/git-blame.nvim",
-      event = "VeryLazy",
+      "lewis6991/gitsigns.nvim",
       opts = {
-        date_format = "%r",
-        virtual_text_column = 1,
+        current_line_blame = true,
+        current_line_blame_opts = {
+          delay = 200,
+        },
+      },
+      keys = {
+        { "<leader>b", "<cmd>Gitsigns blame<cr>" },
       },
     },
 
@@ -336,19 +339,18 @@ require("lazy").setup({
       cmd = "GitLink",
       opts = {},
       keys = {
-        { "<leader>y", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank and Open" },
-        { "<leader>o", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
+        { "<leader>y", "<cmd>GitLink<cr>", mode = { "n", "v" } },
+        { "<leader>o", "<cmd>GitLink!<cr>", mode = { "n", "v" } },
       },
     },
 
     {
       "akinsho/toggleterm.nvim",
       opts = {
-        size = vim.o.columns * 0.5,
         open_mapping = [[<leader>/]],
         shade_terminals = false,
         insert_mappings = false,
-        direction = "vertical",
+        direction = "float",
       },
     },
 
