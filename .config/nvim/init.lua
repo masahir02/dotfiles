@@ -349,8 +349,9 @@ require("lazy").setup({
       "akinsho/toggleterm.nvim",
       opts = {
         open_mapping = [[<leader>/]],
-        shade_terminals = false,
         insert_mappings = false,
+        persist_size = false,
+        persist_mode = false,
         direction = "float",
       },
     },
