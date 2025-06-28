@@ -346,17 +346,6 @@ require("lazy").setup({
     },
 
     {
-      "akinsho/toggleterm.nvim",
-      opts = {
-        open_mapping = [[<leader>/]],
-        insert_mappings = false,
-        persist_size = false,
-        persist_mode = false,
-        direction = "float",
-      },
-    },
-
-    {
       "nvim-lualine/lualine.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
       opts = {
