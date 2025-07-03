@@ -8,7 +8,9 @@
       "Bash(ls:*)",
       "Bash(make:*)",
       "Bash(mv:*)",
-      "Bash(pnpm:*)"
+      "Bash(pnpm:*)",
+      "Bash(rg:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
