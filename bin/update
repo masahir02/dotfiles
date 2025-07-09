@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source ~/.zshrc
+
 brew update
 brew upgrade
 brew bundle --global
@@ -12,7 +14,6 @@ gcloud components update --quiet
 
 asdf plugin update --all
 
-source ~/.zshrc
 zinit self-update
 zinit update --all --quiet
 

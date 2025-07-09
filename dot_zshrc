@@ -157,6 +157,7 @@ mkdir -p $HOME/.asdf/completions && asdf completion zsh > $HOME/.asdf/completion
 
 path=(
   $HOME/bin
+  $HOME/.local/share/chezmoi/bin
   $HOME/.asdf/shims
   $(asdf where python)/bin
   $path
@@ -189,7 +190,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
-
 
 if which terraform > /dev/null 2>&1 ; then
   complete -o nospace -C $(asdf where terraform)/bin/terraform terraform
