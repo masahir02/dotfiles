@@ -114,7 +114,6 @@ require("lazy").setup({
         local builtin = require("telescope.builtin")
         require("telescope").setup({
           defaults = {
-            preview = false,
             mappings = {
               i = {
                 ["<esc>"] = actions.close,
@@ -126,10 +125,9 @@ require("lazy").setup({
               vertical = {
                 height = 0.999,
                 width = 0.999,
-                preview_height = 0.7,
+                preview_height = 0.5,
               },
             },
-            border = false,
             sorting_strategy = "ascending",
             scroll_strategy = "cycle",
           },
@@ -139,6 +137,7 @@ require("lazy").setup({
             },
             buffers = {
               sort_lastused = true,
+              sort_mru = true,
               mappings = {
                 i = {
                   ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
