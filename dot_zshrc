@@ -5,9 +5,12 @@ export FZF_DEFAULT_COMMAND='find . -type f | grep -Ev "(.git\/|__pycache__)"'
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
 fpath=(
-  $HOME/.asdf/completions
   $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
+)
+
+path=(
+  $path
 )
 
 alias vi='nvim'
@@ -153,15 +156,6 @@ bindkey '^\' fzf-src
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-mkdir -p $HOME/.asdf/completions && asdf completion zsh > $HOME/.asdf/completions/_asdf
-
-path=(
-  $HOME/bin
-  $HOME/.local/share/chezmoi/bin
-  $HOME/.asdf/shims
-  $(asdf where python)/bin
-  $path
-)
 # source files
 source_files=(
   $HOME/.zshrc.local
@@ -194,7 +188,6 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 if which terraform > /dev/null 2>&1 ; then
   complete -o nospace -C $(asdf where terraform)/bin/terraform terraform
 fi
-
 
 function() {
   local session_name=$(hostname | cut -d. -f1)
