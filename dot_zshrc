@@ -148,7 +148,6 @@ function fzf-src() {
 zle -N fzf-src
 bindkey '^\' fzf-src
 
-
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
