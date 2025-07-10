@@ -2,7 +2,7 @@
 
 1. Install Homebrew. https://brew.sh/
 
-1. Install chezmoi. https://www.chezmoi.io/install/
+1. Install chezmoi. https://www.chezmoi.io/
 
     ```bash
     brew install chezmoi && chezmoi init --apply --ssh masahir02
