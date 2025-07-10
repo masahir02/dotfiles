@@ -5,5 +5,5 @@
 1. Install chezmoi. https://www.chezmoi.io/install/
 
     ```bash
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /tmp init --apply --ssh masahir02
+    brew install chezmoi && chezmoi init --apply --ssh masahir02
     ```
