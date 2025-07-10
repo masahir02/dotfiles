@@ -32,6 +32,7 @@ alias zcat='gzcat'
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+
 fpath=(
   $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
