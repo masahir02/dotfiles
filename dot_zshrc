@@ -4,16 +4,6 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='find . -type f | grep -Ev "(.git\/|__pycache__)"'
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --color=16'
 
-fpath=(
-  $HOMEBREW_PREFIX/share/zsh/site-functions
-  $fpath
-)
-
-path=(
-  $HOME/.asdf/shims
-  $path
-)
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -54,7 +44,6 @@ zstyle ':vcs_info:git:*' formats '%u%c %b'
 zstyle ':vcs_info:git:*' stagedstr '+'
 zstyle ':vcs_info:git:*' unstagedstr '-'
 
-
 # hook functions
 chpwd() {
   ls
@@ -73,7 +62,6 @@ precmd() {
   vcs_info
   [[ -n $vcs_info_msg_0_ ]] && print -v 'psvar[1]' -Pr -- "$vcs_info_msg_0_"
 }
-
 
 PROMPT='%(?,%F{green},%F{red})%#%f '
 RPROMPT='%(1v.%F{yellow}%1v%f.) %F{cyan}%~%f %F{white}${elapsed_time}%f'
@@ -115,7 +103,6 @@ setopt no_hist_beep
 setopt no_hup
 setopt no_list_beep
 
-
 # key binding
 bindkey -e
 bindkey '^A' backward-word
@@ -156,7 +143,6 @@ function fzf-src() {
 zle -N fzf-src
 bindkey '^\' fzf-src
 
-
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -171,6 +157,16 @@ for file in ${source_files[@]}; do [[ -f $file ]] && source $file; done
 if which kubectl > /dev/null; then
   source <(kubectl completion zsh)
 fi
+
+fpath=(
+  $HOMEBREW_PREFIX/share/zsh/site-functions
+  $fpath
+)
+
+path=(
+  $HOME/.asdf/shims
+  $path
+)
 
 # golang
 export GOPATH=$HOME
