@@ -125,7 +125,7 @@ require("lazy").setup({
               vertical = {
                 height = 0.999,
                 width = 0.999,
-                preview_height = 0.6,
+                preview_height = 0.5,
               },
             },
             sorting_strategy = "ascending",
