@@ -20,6 +20,7 @@ brew "gojq"
 brew "libffi"
 brew "libpq", link: true
 brew "node"
+brew "mongosh"
 brew "zstd"
 brew "mysql-client@8.0", link: true
 brew "neovim"
