@@ -3,5 +3,10 @@
 
 source ~/.zshrc
 
+brew bundle --global
+brew bundle cleanup --force --global
+
 zinit self-update
 zinit update --all --quiet
+
+gcloud components update --quiet
